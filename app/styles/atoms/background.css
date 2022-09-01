@@ -1,0 +1,11 @@
+.bg-none {
+    background: none;
+}
+
+.bg-blue {
+    background: var(--blue);
+}
+
+.bg-black {
+    background: var(--black);
+}

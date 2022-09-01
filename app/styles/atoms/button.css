@@ -1,0 +1,19 @@
+.btn {
+    padding: .75rem 1.5rem;
+
+    border: 0;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.btn-sm {
+    font-size: .5rem;
+}
+.btn-md {
+    font-size: 1rem;
+}
+.btn-lg {
+    font-size: 1.5rem;
+}
