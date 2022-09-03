@@ -1,3 +1,40 @@
 .w-full {
     width: 100%;
 }
+
+.w-xs {
+    width: .25rem;
+}
+.w-sm {
+    width: .5rem;
+}
+.w-md {
+    width: 1rem;
+}
+.w-lg {
+    width: 1.25rem;
+}
+.w-xl {
+    width: 1.5rem;
+}
+.w-2xl {
+    width: 2rem;
+}
+.w-3xl {
+    width: 2.5rem;
+}
+.w-4xl {
+    width: 3rem;
+}
+.w-5xl {
+    width: 3.5rem;
+}
+.w-6xl {
+    width: 4rem;
+}
+.w-7xl {
+    width: 4.5rem;
+}
+.w-8xl {
+    width: 5rem;
+}
