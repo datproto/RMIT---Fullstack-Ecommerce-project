@@ -14,14 +14,31 @@
 
     <header>
         <nav class="flex justify-between items-center">
-            <div id="logo">Logo</div>
-            <div class="right-menu flex gap-xs">
-                <ul class="flex gap-xs">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="my-account.php">My Account</a></li>
+            <div class="left flex items-center gap-xl">
+                <div id="logo">
+                    <a href="/">
+                        <img src="" alt="" />
+                    </a>
+                </div>
+                <div>
+                    <form action="/">
+                        <label class="flex gap-0">
+                            <input type="text" placeholder="Search something ..." class="rad-none rad-left-md"/>
+                            <button class="btn btn-square bg-red text-md text-white rad-right-md"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </label>
+                    </form>
+                </div>
+            </div>
+            <div class="right-menu flex gap-xl">
+                <ul class="flex gap-xl">
+                    <li>
+                        <a href="my-account.php">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                    </li>
                 </ul>
-                <button class="btn btn-md rad-sm text-blue font-medium bg-none border-blue">Log in</button>
+                <button class="btn btn-md rad-md text-white font-bold bg-red border-blue">Log in</button>
             </div>
         </nav>
     </header>
-    <main>
+    <main class="flex flex-col gap-xl">

@@ -1,3 +1,40 @@
 .w-full {
     width: 100%;
 }
+
+.w-xs {
+    gap: .25rem;
+}
+.w-sm {
+    gap: .5rem;
+}
+.w-md {
+    gap: 1rem;
+}
+.w-lg {
+    gap: 1.25rem;
+}
+.w-xl {
+    gap: 1.5rem;
+}
+.w-2xl {
+    gap: 2rem;
+}
+.w-3xl {
+    gap: 2.5rem;
+}
+.w-4xl {
+    gap: 3rem;
+}
+.w-5xl {
+    gap: 3.5rem;
+}
+.w-6xl {
+    gap: 4rem;
+}
+.w-7xl {
+    gap: 4.5rem;
+}
+.w-8xl {
+    gap: 5rem;
+}

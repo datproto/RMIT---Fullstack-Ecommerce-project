@@ -1,5 +1,38 @@
+.rad-none {
+    border-radius: 0;
+}
 .rad-xs {
+    border-radius: .25rem;
+}
+.rad-sm {
     border-radius: .5rem;
+}
+.rad-md {
+    border-radius: 1rem;
+}
+.rad-right-xs {
+    border-top-right-radius: .25rem;
+    border-bottom-right-radius: .25rem;
+}
+.rad-right-sm {
+    border-top-right-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+}
+.rad-right-md {
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+.rad-left-xs {
+     border-top-left-radius: .25rem;
+     border-bottom-left-radius: .25rem;
+ }
+.rad-left-sm {
+    border-top-left-radius: .5rem;
+    border-bottom-left-radius: .5rem;
+}
+.rad-left-md {
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
 }
 
 .rad-sm {
