@@ -35,18 +35,6 @@
     border-bottom-left-radius: 1rem;
 }
 
-.rad-sm {
-    border-radius: .75rem;
-}
-
-.rad-md {
-    border-radius: 1rem;
-}
-
-.rad-lg {
-    border-radius: 1.25rem;
-}
-
 .rad-full {
     border-radius: 100rem;
 }

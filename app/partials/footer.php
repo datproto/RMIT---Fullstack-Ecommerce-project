@@ -1,7 +1,7 @@
 <?php
 ?>
 </main>
-
-<script src="https://kit.fontawesome.com/25adc7f9b5.js" crossorigin="anonymous"></script>
+<script src="js/addLocalStorage.js"></script>
+<script src="js/removeLocalStorage.js"></script>
 </body>
 </html>

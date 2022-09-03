@@ -9,6 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>RMIT - Ecommerce</title>
     <link rel="stylesheet" href="../styles/main.css">
+    <script src="https://kit.fontawesome.com/25adc7f9b5.js" crossorigin="anonymous"></script>
 </head>
 <body>
 

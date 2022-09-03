@@ -3,38 +3,38 @@
 }
 
 .w-xs {
-    gap: .25rem;
+    width: .25rem;
 }
 .w-sm {
-    gap: .5rem;
+    width: .5rem;
 }
 .w-md {
-    gap: 1rem;
+    width: 1rem;
 }
 .w-lg {
-    gap: 1.25rem;
+    width: 1.25rem;
 }
 .w-xl {
-    gap: 1.5rem;
+    width: 1.5rem;
 }
 .w-2xl {
-    gap: 2rem;
+    width: 2rem;
 }
 .w-3xl {
-    gap: 2.5rem;
+    width: 2.5rem;
 }
 .w-4xl {
-    gap: 3rem;
+    width: 3rem;
 }
 .w-5xl {
-    gap: 3.5rem;
+    width: 3.5rem;
 }
 .w-6xl {
-    gap: 4rem;
+    width: 4rem;
 }
 .w-7xl {
-    gap: 4.5rem;
+    width: 4.5rem;
 }
 .w-8xl {
-    gap: 5rem;
+    width: 5rem;
 }
