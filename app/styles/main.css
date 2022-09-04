@@ -59,3 +59,22 @@ a:hover {
 }
 
 /* Custom CSS */
+.heading-center {
+    text-align: center;
+}
+
+.flex-start {
+    align-items: flex-start;
+}
+
+.center {
+    margin:auto
+}
+
+.pad {
+    padding: 5px 19px;
+}
+
+.register-input {
+    display: block;
+}
