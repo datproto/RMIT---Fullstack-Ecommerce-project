@@ -1,5 +1,6 @@
 <?php
 ?>
+<<<<<<< HEAD
 <!doctype html>
 <html lang="en">
 <head>
@@ -25,3 +26,10 @@
     </header>
     <main>
 </body>
+=======
+</main>
+<script src="js/addLocalStorage.js"></script>
+<script src="js/removeLocalStorage.js"></script>
+</body>
+</html>
+>>>>>>> 71a6eaee3783e3223081cfe82744ba0e1cb3724f
