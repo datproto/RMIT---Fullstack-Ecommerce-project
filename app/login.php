@@ -25,7 +25,6 @@ function check_if_username_exist($login_name,$login_pass) {
     if (in_array($login_name,$username)) {
         $user_pos = array_search($login_name,$username);
         if(password_verify($login_pass,$password[$user_pos])) {
-            print_r("$login_pass");
             return true;
         }return false;
     }   
