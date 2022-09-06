@@ -31,7 +31,7 @@
         <input class="register-input" id="name" name="name" type="text"><br>
         <label class="register-input" for="address">Address</label>
         <input class="register-input" id="address" name="address" type="text"><br>
-        <input type="submit" class="bg-red btn">
+        <input type="submit" name="login" class="bg-red btn">
         </form>
 </div>
 <?php
@@ -49,10 +49,6 @@
 
 ?>
 <?php
-    $username = $_POST["username"];
-    $password = $_POST["password"];
-    $name = $_POST["name"];
-    $address = $_POST["address"];
     $myfile = fopen("accounts.db", "a");
     //check if username is taken    
     function check_username($username) {
@@ -112,16 +108,22 @@
                 return false;
         }return true;
     } 
-if (validate_username($username) == true && validate_password($password) == true && validate_name($name) == true && validate_address($address) == true && check_username($username) == true) {
-    $hashed_password = password_hash("$password",PASSWORD_DEFAULT);
-    $list = array (
-    array("customer", $username, $hashed_password,$name,$address)
-    );
-    print_r($list);
-    foreach($list as $char) {
-        fputcsv($myfile, $char);
-    }      
-}         
+if (isset($_POST['login'])) {   
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+    $name = $_POST["name"];
+    $address = $_POST["address"];
+    if (validate_username($username) == true && validate_password($password) == true && validate_name($name) == true && validate_address($address) == true && check_username($username) == true) {
+        $hashed_password = password_hash("$password",PASSWORD_DEFAULT);
+        $list = array (
+        array("customer", $username, $hashed_password,$name,$address)
+        );
+        foreach($list as $char) {
+            fputcsv($myfile, $char);
+        } 
+        echo "Register successfully";     
+    } 
+}        
 ?>
 <?php
     include 'partials/footer.php';

@@ -33,7 +33,7 @@
             <option value="hub2">hub 2</option>
             <option value="hub3">hub 3</option>
         </select><br>
-        <input type="submit" class="bg-red btn">
+        <input type="submit" name="login" class="bg-red btn">
     </form>
 </div>
 <?php
@@ -51,9 +51,6 @@
 
 ?>
 <?php
-    $username = $_POST["username"];
-    $password = $_POST["password"];
-    $hub = $_POST["distribution-hub"];
     $myfile = fopen("accounts.db", "a");
     //check if username is taken    
     function check_username($username) {
@@ -95,16 +92,21 @@
             }
         }return true;   
     }
-    if (validate_username($username) == true && validate_password($password) == true && check_username($username) == true) {
-        $hashed_password = password_hash("$password",PASSWORD_DEFAULT);
-        $list = array (
-        array("shipper", $username, $hashed_password,$hub,)
-        );
-        print_r($list);
-        foreach($list as $char) {
-            fputcsv($myfile, $char);
-        }      
-}         
+    if (isset($_POST['login'])) {   
+        $username = $_POST["username"];
+        $password = $_POST["password"];
+        $hub = $_POST["distribution-hub"];
+        if (validate_username($username) == true && validate_password($password) == true && check_username($username) == true) {
+            $hashed_password = password_hash("$password",PASSWORD_DEFAULT);
+            $list = array (
+            array("shipper", $username, $hashed_password,$hub,)
+            );
+            foreach($list as $char) {
+                fputcsv($myfile, $char);
+            }  
+            echo "Register successfully";     
+        } 
+    }      
 ?>
 <?php
     include 'partials/footer.php';

@@ -31,10 +31,12 @@
         <input class="register-input" id="business_name" name="business_name" type="text"><br>
         <label class="register-input" for="business_address">Business address</label>
         <input class="register-input" id="business_address" name="business_address" type="text"><br>
-        <input type="submit" class="bg-red btn">
+        <input type="submit" name="login" class="bg-red btn">
         </form>
 </div>
 <?php
+    $myfile = fopen("accounts.db", "a");
+    //Check password regex
     function passwordIsValid( $pass) {
         if (!preg_match('/[a-z]+/', $pass)) {
             return false;
@@ -46,13 +48,6 @@
             return false;
         }return true;
     }
-?> 
-<?php
-    $username = $_POST["username"];
-    $password = $_POST["password"];
-    $business_name = $_POST["business_name"];
-    $business_address = $_POST["business_address"];
-    $myfile = fopen("accounts.db", "a");
     //check if username is taken    
     function check_username($username) {
         $file=fopen("accounts.db","r");
@@ -142,17 +137,22 @@
                 return false;  
             } return true;
         }
-if (validate_username($username) == true && validate_password($password) == true && validate_name($business_name) == true && validate_address($business_address) == true && check_username($username) == true && check_business_name($business_name) == true
-&& check_business_address($business_address) == true) {
-    $hashed_password = password_hash("$password",PASSWORD_DEFAULT); 
-    $list = array (
-    array("vendor", $username, $hashed_password,$business_name,$business_address)
-    );
-    print_r($list);
-    foreach($list as $char) {
-        fputcsv($myfile, $char);
-    }      
-}
+    if (isset($_POST['login'])) {
+        $username = $_POST["username"];
+        $password = $_POST["password"];
+        $business_name = $_POST["business_name"];
+        $business_address = $_POST["business_address"];
+        if (validate_username($username) == true && validate_password($password) == true && validate_name($business_name) == true && validate_address($business_address) == true && check_username($username) == true && check_business_name($business_name) == true
+        && check_business_address($business_address) == true) {
+            $hashed_password = password_hash("$password",PASSWORD_DEFAULT); 
+            $list = array (
+            array("vendor", $username, $hashed_password,$business_name,$business_address)
+            );
+            foreach($list as $char) {
+                fputcsv($myfile, $char);
+            } echo "Register successfully";          
+        } 
+    }
 ?>
 <?php
     include 'partials/footer.php';
