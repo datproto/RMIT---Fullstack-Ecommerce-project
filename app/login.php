@@ -36,26 +36,4 @@ if(check_if_username_exist($login_name,$login_pass) == true) {
     include 'partials/footer.php';
 ?>
     
-<?php 
-
-
-
-
-
-
-/*
-$fullname=$_POST["fullname"];
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (empty($fullname)) {
-        echo "<span style='color:red;'>Error: Họ tên bắt buộc phải nhập.</span>";
-    } else {
-        if(!preg_match("/^[a-zA-Z ]*$/",$fullname)) {
-            echo "<span style='color:red;'>Error: Họ tên chỉ chấp nhận chữ và khoảng trắng.</span>";
-        } else {
-            echo $fullname;
-        }
-    }
-}
-*/
-?>
 
