@@ -142,11 +142,11 @@
                 return false;  
             } return true;
         }
-    
 if (validate_username($username) == true && validate_password($password) == true && validate_name($business_name) == true && validate_address($business_address) == true && check_username($username) == true && check_business_name($business_name) == true
 && check_business_address($business_address) == true) {
+    $hashed_password = password_hash("$password",PASSWORD_DEFAULT); 
     $list = array (
-    array("vendor", $username, $password,$business_name,$business_address)
+    array("vendor", $username, $hashed_password,$business_name,$business_address)
     );
     print_r($list);
     foreach($list as $char) {

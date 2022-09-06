@@ -96,8 +96,9 @@
         }return true;   
     }
     if (validate_username($username) == true && validate_password($password) == true && check_username($username) == true) {
+        $hashed_password = password_hash("$password",PASSWORD_DEFAULT);
         $list = array (
-        array("shipper", $username, $password,$hub,)
+        array("shipper", $username, $hashed_password,$hub,)
         );
         print_r($list);
         foreach($list as $char) {

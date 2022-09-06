@@ -1,10 +1,4 @@
-customer,vinh1234V,Vd@123321,name11,add1111
-vendor,vinh1234V23,Vd@123321,name11,adasdasd
-vendor,vinh1234V111dx,Vd@123321,name122222,adasdasd
-vendor,vinh1234V321,Vd@123321,dasdasd,adasdasd
-shipper,vinh1234Veqwe,Vd@123321,hub1
-vendor,vinh1234V213213,Vd@123321,name123dasd,address1
-vendor,vinh1234Veqwees,Vd@123321,name11ewqeqwe,address1
-customer,vinh1234Vew12,Vd@123321,zxcxczzxc,address11
-customer,vinh1234Vxzzc,Vd@123321,dsadasd,address333
-vendor,vinh1234V123s,Vd@123321,dsadasdasd,address333
+customer,vinhtestlanthu1,$2y$10$3sYjq9l.buwgHl9ZBIaNe.Pd/Srn7EWHzjR9V3Q/maS8T./ZVu/Ve,vinhdinh,hcmhanoi
+customer,vinhtestlanthu2,$2y$10$EOvc9h.FXfiMsVpNelQdgOt/7GSc.AbGwP9qpXljBuEmuj7ZGiNfm,vinhdddinh,mongcaiquangninh
+shipper,vinhtestlanthu4,$2y$10$qECkWnGKkLdJH2z01zTSverY40wFkkCs8V2/GEW3guKu0Et3kLU.C,hub1
+shipper,vinhtestlanthu5,$2y$10$.l/IGLqiFaGSuBEDz.GicO9UNCBUnmJbp9EpUwGgNlJ5mEt.CXK8u,hub1

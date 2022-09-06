@@ -3,22 +3,47 @@
 ?>
 <h1 class="heading-center">Login</h1>
 <div class="center">
-    <label class="register-input" for="username">Username</label>
-    <input class="register-input" id="username" type="text"><br>
-    <label class="register-input" for="password">Password</label>
-    <input class="register-input" id="password" type="text"><br>
+    <form method="post" action="">
+        <label class="register-input" for="login_name">Username</label>
+        <input class="register-input" id="login_name" name="login_name" type="text"><br>
+        <label class="register-input" for="login_pass">Password</label>
+        <input class="register-input" id="login_pass" name="login_pass" type="text"><br>
+        <input type="submit" class="bg-red btn">
+    </form>
 </div>
-<div class="center">
-    <button class="btn btn-md rad-md text-white font-bold bg-red border-blue">login</button>
-</div> 
 <?php
+$login_name=$_POST["login_name"];
+$login_pass=$_POST["login_pass"];
+function check_if_username_exist($login_name,$login_pass) {
+    $file = fopen("accounts.db","r");
+    $username=array();
+    $password=array();
+    while (($data = fgetcsv($file)) !== FALSE) {
+        array_push($username,$data[1]);
+        array_push($password,$data[2]);
+    }    
+    if (in_array($login_name,$username)) {
+        $user_pos = array_search($login_name,$username);
+        if(password_verify($login_pass,$password[$user_pos])) {
+            print_r("$login_pass");
+            return true;
+        }return false;
+    }   
+}
+if(check_if_username_exist($login_name,$login_pass) == true) {
+    echo "Login successfully";
+} else echo "login failed";
     include 'partials/footer.php';
 ?>
-    <form action="" method="post">
-    Họ tên: <input type="text" name="fullname" value="">
-    <button type="submit">Gửi</button>
-</form>
+    
 <?php 
+
+
+
+
+
+
+/*
 $fullname=$_POST["fullname"];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($fullname)) {
@@ -31,4 +56,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
+*/
 ?>
+

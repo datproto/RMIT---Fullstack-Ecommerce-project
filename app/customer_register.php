@@ -113,8 +113,9 @@
         }return true;
     } 
 if (validate_username($username) == true && validate_password($password) == true && validate_name($name) == true && validate_address($address) == true && check_username($username) == true) {
+    $hashed_password = password_hash("$password",PASSWORD_DEFAULT);
     $list = array (
-    array("customer", $username, $password,$name,$address)
+    array("customer", $username, $hashed_password,$name,$address)
     );
     print_r($list);
     foreach($list as $char) {
