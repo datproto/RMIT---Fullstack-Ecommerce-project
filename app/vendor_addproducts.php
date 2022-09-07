@@ -4,7 +4,7 @@
     <title>Add products</title>
     <script src="js/addProduct.js"></script>
 </head>
-<body>
+<body onload="displayList()">
 <header>
     <?php
     include 'partials/header.php';
@@ -23,7 +23,7 @@
     <div>
         <form id="add_products" action="vendor_products.php">
             <label for="product_pic">Choose a picture for your product: </label><br>
-            <input type="file" id="product_pic" name="product_pic" accept="image/png, image/jpeg" required><br>
+            <input type="file" id="product_pic" name="product_pic" accept="image/png, image/jpeg"><br>
             <label for="product_name">Name </label><br>
             <input type="text" id="product_name" name="product_name" required class="form-control"><br>
             <label for="product_price">Price </label><br>

@@ -13,7 +13,7 @@
 </header>
 
 
-<form name="ShoppingList">
+<form name="ShoppingList" id="ShoppingList">
     <fieldset>
         <legend>Shopping cart</legend>
         <label>Item: <input type="text" name="name"></label>
@@ -26,8 +26,7 @@
     <div id="items_table">
         <h2>Shopping List</h2>
         <table id="list"></table>
-        <label><input type="button" value="Clear" onclick="ClearAll()">
-            * Delete all items</label>
+        <label><input type="button" value="Clear" onclick="ClearAll()"></label>
     </div>
 </form>
 
