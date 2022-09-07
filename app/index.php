@@ -10,7 +10,7 @@
 //    var_dump($array, $error === JSON_ERROR_UTF8);
 
     foreach ($array as $a) {
-        echo $a['username'];
+        echo $a['password'];
     }
 ?>
 <h1>Products</h1>
@@ -71,7 +71,6 @@
             </div>
         </div>
     </div>
-
 </div>
 
 <?php
