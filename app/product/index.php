@@ -1,7 +1,7 @@
 <?php
-    include 'partials/header.php';
+    include '../partials/header.php';
 
-    $product_json = file_get_contents('product.db');
+    $product_json = file_get_contents('../db/product.db');
     $array = json_decode(preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $product_json), true);
 ?>
 <h1>Products</h1>
@@ -28,11 +28,11 @@
 </div>
 
 <?php
-    include 'partials/footer.php';
+    include '../partials/footer.php';
 ?>
 
 <script>
     function navigateToProduct(id) {
-        document.getElementById(i).style.visibility='visible';
+        document.getElementById(id).style.visibility='visible';
     }
 </script>

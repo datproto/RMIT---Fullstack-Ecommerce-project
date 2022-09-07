@@ -1,77 +1,50 @@
-<?php
-    # Home Page
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <?php
     include 'partials/header.php';
 
-    $user_json = file_get_contents('user.db');
-    $array = json_decode(preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $user_json), true);
-//    $error = json_last_error();
-//
-//    var_dump($array, $error === JSON_ERROR_UTF8);
-
-    foreach ($array as $a) {
-        echo $a['password'];
-    }
-?>
+    $product_json = file_get_contents('db/product.db');
+    $products_array = json_decode(preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $product_json), true);
+    ?>
+    <link rel="stylesheet" href="styles/pages/products.css">
+</head>
+<body>
 <h1>Products</h1>
-<div class="grid grid-col-3 gap-lg">
-    <!--  Prod 1  -->
-    <?php foreach ($array as $a) { ?>
-    <div class="prod flex gap-md items-center">
-        <img src="https://picsum.photos/300/300" alt="" class="rad-md" style="width: 8rem; height: 8rem"/>
-        <div class="flex gap-md">
-            <div class="flex flex-col gap-sm">
-                <h4><?php echo $a['username'] ?></h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis</p>
-                <div class="flex gap-md">
-                    <button class="btn btn-sm bg-red rad-xs text-white font-bold" onclick="addLocalStorage('prod', '<?php echo $a['username'] ?>')">Add to Cart</button>
-                    <button class="btn btn-sm bg-none font-medium" style="padding-left: 0;"><i class="fa-regular fa-heart text-red"></i> Add to Wish</button>
+<div class="productList grid grid-col-3 gap-lg">
+    <?php foreach ($products_array as $a) { ?>
+        <div class="productItem flex gap-md items-center">
+            <div>
+                <img src="<?php echo $a['img'] ?>" alt="" class="rad-md" style="width: 8rem; height: 8rem"/>
+            </div>
+            <div class="flex gap-md items-center">
+                <div class="flex flex-col gap-sm">
+                    <h4><?php echo $a['short'] ?></h4>
+                    <p class="descriptionText"><?php echo $a['description'] ?></p>
+                    <div class="flex gap-md">
+                        <button class="btn btn-sm bg-red rad-xs text-white font-bold">Add to Cart</button>
+                        <button class="btn btn-sm bg-none font-medium" style="padding-left: 0;"><i class="fa-regular fa-heart text-red"></i> Add to Wish</button>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center" style="height: 100%">
+                    <div class="font-bold text-lg text-red" style="align-self: center"><?php echo $a['price'] ?> $</div>
+                    <button class="detailsButton btn btn-md" onclick="navigateToProduct(<?php echo $a['id'] ?>)">Details..</button>
                 </div>
             </div>
-            <div class="flex flex-col" style="height: 100%">
-                <div class="price font-bold text-lg text-red" style="align-self: start">$350</div>
-            </div>
         </div>
-    </div>
     <?php } ?>
-
-    <!--  Prod 2  -->
-    <div class="prod flex gap-md items-center">
-        <img src="https://picsum.photos/300/300" alt="" class="rad-md" style="width: 8rem; height: 8rem"/>
-        <div class="flex gap-md">
-            <div class="flex flex-col gap-sm">
-                <h4>Fake Nike shoes</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis</p>
-                <div class="flex gap-md">
-                    <button class="btn btn-sm bg-red rad-xs text-white font-bold">Add to Cart</button>
-                    <button class="btn btn-sm bg-none font-medium" style="padding-left: 0;"><i class="fa-regular fa-heart text-red"></i> Add to Wish</button>
-                </div>
-            </div>
-            <div class="flex flex-col" style="height: 100%">
-                <div class="price font-bold text-lg text-red" style="align-self: start">$350</div>
-            </div>
-        </div>
-    </div>
-
-
-    <!--  Prod 3  -->
-    <div class="prod flex gap-md items-center">
-        <img src="https://picsum.photos/300/300" alt="" class="rad-md w-8xl"/>
-        <div class="flex gap-md">
-            <div class="flex flex-col gap-sm">
-                <h4>Fake Nike shoes</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis</p>
-                <div class="flex gap-md">
-                    <button class="btn btn-sm bg-red rad-xs text-white font-bold">Add to Cart</button>
-                    <button class="btn btn-sm bg-none font-medium" style="padding-left: 0;"><i class="fa-regular fa-heart text-red"></i> Add to Wish</button>
-                </div>
-            </div>
-            <div class="flex flex-col" style="height: 100%">
-                <div class="price font-bold text-lg text-red" style="align-self: start">$350</div>
-            </div>
-        </div>
-    </div>
 </div>
 
 <?php
-    include 'partials/footer.php';
+include 'partials/footer.php';
+?>
+</body>
+</html>
+
+
+<script>
+    function navigateToProduct(id) {
+        sessionStorage.setItem('product_id', id);
+        window.location=`product/index.php`;
+    }
+</script>
