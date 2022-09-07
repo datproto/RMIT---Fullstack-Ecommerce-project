@@ -41,6 +41,22 @@
     }
 
     include 'partials/footer.php';
+
+    $file2 = fopen("accounts.db","r");
+    $vendor=array();
+    $shipper=array();
+    $customer=array();
+    while (($data2 = fgetcsv($file2)) !== FALSE) {
+    if (preg_match("/^vendor$/",$data2[0]) == true) {
+        array_push($vendor,$data2[4]);
+    } else if (preg_match("/^shipper$/",$data2[0]) == true) {
+        array_push($shipper,$data2[4]);
+    } else if (preg_match("/^customer$/",$data2[0]) == true) {
+        array_push($customer,$data2[4]);
+    }
+
 ?>
+
+
     
 
