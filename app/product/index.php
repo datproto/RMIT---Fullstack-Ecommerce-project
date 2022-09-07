@@ -7,7 +7,7 @@
 <h1>Products</h1>
 <div class="grid grid-col-3 gap-lg">
     <?php foreach ($array as $a) { ?>
-    <div class="prod flex gap-md items-center">
+    <div class="prod flex gap-md items-center" onclick="navigateToProduct(<?php $a['id'] ?>)">
       <!-- TODO: add image src via db -->
         <img src="<?php echo $a['image'] ?>" alt="" class="rad-md" style="width: 8rem; height: 8rem"/>
         <div class="flex gap-md">
@@ -29,3 +29,10 @@
 
 <?php
     include 'partials/footer.php';
+?>
+
+<script>
+    function navigateToProduct(id) {
+        document.getElementById(i).style.visibility='visible';
+    }
+</script>
