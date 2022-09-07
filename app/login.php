@@ -17,15 +17,25 @@
         $file = fopen("accounts.db","r");
         $username=array();
         $password=array();
+        $role=array();
         while (($data = fgetcsv($file)) !== FALSE) {
             $username[] = $data[1];
             $password[] = $data[2];
-        }
+            $role[] = $data[1];        }
         if (in_array($login_name,$username)) {
             $user_pos = array_search($login_name,$username);
             if(password_verify($login_pass,$password[$user_pos])) {
                 return true;
-            }return false;
+                if (preg_match("/^vendor$/",$role[$user_pos]) == true) {
+                 //go to vendor page
+                }
+                if (preg_match("/^customer$/",$role[$user_pos]) == true) {
+                //go to customer page
+                }
+                if (preg_match("/^shipper$/",$role[$user_pos]) == true) {
+                //go to shipper page
+                }
+            }return false;  
         }
     }
 
@@ -54,7 +64,10 @@
     } else if (preg_match("/^customer$/",$data2[0]) == true) {
         array_push($customer,$data2[4]);
     }
-
+    if (in_array($business_address,$new_add)) {
+        echo "Business address is taken";
+        return false;  
+    } return true;
 ?>
 
 
