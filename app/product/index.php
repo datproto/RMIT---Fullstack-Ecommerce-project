@@ -15,7 +15,7 @@
                 <h4><?php echo $a['name'] ?></h4>
                 <p><?php echo $a['description'] ?></p>
                 <div class="flex gap-md">
-                    <button class="btn btn-sm bg-red rad-xs text-white font-bold">Add to Cart</button>
+                    <a href="#" class="btn btn-sm bg-red rad-xs text-white font-bold" onclick="addToCart('<?php echo $a['id'] ?>')">Add to Cart</a>
                     <button class="btn btn-sm bg-none font-medium" style="padding-left: 0;"><i class="fa-regular fa-heart text-red"></i> Add to Wish</button>
                 </div>
             </div>
@@ -34,5 +34,9 @@
 <script>
     function navigateToProduct(id) {
         document.getElementById(id).style.visibility='visible';
+    }
+
+    function addToCart(id) {
+        alert(id)
     }
 </script>
