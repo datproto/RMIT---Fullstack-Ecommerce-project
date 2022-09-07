@@ -14,27 +14,30 @@
 <?php
     // Cmt 1: Các Function nên để trên cùng
     function check_if_username_exist($login_name,$login_pass) {
-        $file = fopen("accounts.db","r");
+        $file = fopen("db/accounts.db","r");
         $username=array();
         $password=array();
         $role=array();
         while (($data = fgetcsv($file)) !== FALSE) {
             $username[] = $data[1];
             $password[] = $data[2];
-            $role[] = $data[1];        }
+            $role[] = $data[0];        }
         if (in_array($login_name,$username)) {
             $user_pos = array_search($login_name,$username);
             if(password_verify($login_pass,$password[$user_pos])) {
-                return true;
                 if (preg_match("/^vendor$/",$role[$user_pos]) == true) {
-                 //go to vendor page
+                    echo $role[$user_pos];
+                    //go to vendor page
                 }
-                if (preg_match("/^customer$/",$role[$user_pos]) == true) {
-                //go to customer page
+                elseif(preg_match("/^customer$/",$role[$user_pos]) == true) {
+                    echo $role[$user_pos];
+                    //go to customer page
                 }
-                if (preg_match("/^shipper$/",$role[$user_pos]) == true) {
-                //go to shipper page
-                }
+                else {
+                    echo "shipper";
+                    //go to shipper page
+                }  
+                return true;
             }return false;  
         }
     }
@@ -52,23 +55,9 @@
 
     include 'partials/footer.php';
 
-    $file2 = fopen("accounts.db","r");
-    $vendor=array();
-    $shipper=array();
-    $customer=array();
-    while (($data2 = fgetcsv($file2)) !== FALSE) {
-    if (preg_match("/^vendor$/",$data2[0]) == true) {
-        array_push($vendor,$data2[4]);
-    } else if (preg_match("/^shipper$/",$data2[0]) == true) {
-        array_push($shipper,$data2[4]);
-    } else if (preg_match("/^customer$/",$data2[0]) == true) {
-        array_push($customer,$data2[4]);
-    }
-    if (in_array($business_address,$new_add)) {
-        echo "Business address is taken";
-        return false;  
-    } return true;
+
 ?>
+
 
 
     

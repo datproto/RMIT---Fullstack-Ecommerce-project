@@ -22,7 +22,7 @@
 </div>
 <div class="center">
     <form onsubmit = "return vendor_validateForm()" method="post" action="">
-        <input type="file" accept=".jpg, .png">
+        <input type="file" name="avatar" id="avatar">
         <label class="register-input" for="username">Username</label>
         <input class="register-input" id="username" name="username" type="text"><br>
         <label class="register-input" for="password">Password</label>
@@ -35,7 +35,7 @@
         </form>
 </div>
 <?php
-    $myfile = fopen("accounts.db", "a");
+    $myfile = fopen("db/accounts.db", "a");
     //Check password regex
     function passwordIsValid( $pass) {
         if (!preg_match('/[a-z]+/', $pass)) {
@@ -50,7 +50,7 @@
     }
     //check if username is taken    
     function check_username($username) {
-        $file=fopen("accounts.db","r");
+        $file=fopen("db/accounts.db","r");
         $new=array();
         while (($data = fgetcsv($file)) !== FALSE) {
             array_push($new,$data[1]);   
@@ -109,7 +109,7 @@
     }
     //function to check if business name already exist
         function check_business_name($business_name){
-            $file = fopen("accounts.db","r");
+            $file = fopen("db/accounts.db","r");
             $new=array();
             while (($data = fgetcsv($file)) !== FALSE) {
             if (preg_match("/^vendor$/",$data[0]) == true) {
@@ -125,7 +125,7 @@
     
     //function to check if business address already exist
         function check_business_address($business_address){
-            $file2 = fopen("accounts.db","r");
+            $file2 = fopen("db/accounts.db","r");
             $new_add=array();
             while (($data2 = fgetcsv($file2)) !== FALSE) {
             if (preg_match("/^vendor$/",$data2[0]) == true) {
@@ -137,7 +137,15 @@
                 return false;  
             } return true;
         }
-    if (isset($_POST['login'])) {
+    if (isset($_POST["login"])) {
+        $target_dir = "avatar/";
+        $file = $_FILES["avatar"]["name'"];
+	    $path = pathinfo($file);
+	    $filename = $path["filename"];
+	    $ext = $path["extension"];
+	    $temp_name = $_FILES["avatar"]['tmp_name'];
+	    $path_filename_ext = $target_dir.$filename.".".$ext;
+        print_r($target_file);
         $username = $_POST["username"];
         $password = $_POST["password"];
         $business_name = $_POST["business_name"];
@@ -150,10 +158,20 @@
             );
             foreach($list as $char) {
                 fputcsv($myfile, $char);
-            } echo "Register successfully";          
+            } move_uploaded_file($temp_name, $path_filename_ext);
+            echo "Register successfully";          
         } 
     }
 ?>
 <?php
     include 'partials/footer.php';
-
+    $target_dir = "avatar/";
+    $file = $_FILES["avatar"]["name'"];
+    $path = pathinfo($file);
+    $filename = $path["filename"];
+    $ext = $path["extension"];
+    $temp_name = $_FILES["avatar"]['tmp_name'];
+    $path_filename_ext = $target_dir.$filename.".".$ext;
+    print_r($target_file);
+    move_uploaded_file($temp_name, $path_filename_ext);
+   

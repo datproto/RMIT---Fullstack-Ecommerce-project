@@ -51,10 +51,10 @@
 
 ?>
 <?php
-    $myfile = fopen("accounts.db", "a");
+    $myfile = fopen("db/accounts.db", "a");
     //check if username is taken    
     function check_username($username) {
-        $file=fopen("accounts.db","r");
+        $file=fopen("db/accounts.db","r");
         $new=array();
         while (($data = fgetcsv($file)) !== FALSE) {
             array_push($new,$data[1]);   
