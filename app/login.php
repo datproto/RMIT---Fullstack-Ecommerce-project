@@ -2,13 +2,17 @@
     include 'partials/header.php';
 ?>
 <h1 class="heading-center">Login</h1>
-<div class="center">
-    <form method="post" action="">
-        <label class="register-input" for="login_name">Username</label>
-        <input class="register-input" id="login_name" name="login_name" type="text"><br>
-        <label class="register-input" for="login_pass">Password</label>
-        <input class="register-input" id="login_pass" name="login_pass" type="text"><br>
-        <input type="submit" name="login" class="bg-red btn">
+<div class="center w-full md:w-1/2 lg:w-1/3">
+    <form method="post" action="" class="flex flex-col items-center gap-md w-full">
+        <div class="w-full flex items-center gap-sm">
+            <label class="register-input w-10xl font-medium text-red" for="login_name">Username:</label>
+            <input class="register-input w-full" id="login_name" name="login_name" type="text" style="flex: 1"/>
+        </div>
+        <div class="w-full flex items-center gap-sm">
+            <label class="register-input w-10xl font-medium text-red" for="login_pass">Password:</label>
+            <input class="register-input" id="login_pass" name="login_pass" type="text" style="flex: 1"/>
+        </div>
+        <input type="submit" name="login" class="w-full bg-red btn btn-lg text-white font-medium">
     </form>
 </div>
 <?php
@@ -25,7 +29,7 @@
             $user_pos = array_search($login_name,$username);
             if(password_verify($login_pass,$password[$user_pos])) {
                 return true;
-            }return false;
+            } return false;
         }
     }
 
