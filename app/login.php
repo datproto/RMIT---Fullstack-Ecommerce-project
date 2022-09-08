@@ -28,14 +28,16 @@
             if(password_verify($login_pass,$password[$user_pos])) {
                 if (preg_match("/^vendor$/",$role[$user_pos]) == true) {
                     echo $role[$user_pos];
-                    //go to vendor page
+                    $_SESSION["role"]="vendor";
                 }
                 elseif(preg_match("/^customer$/",$role[$user_pos]) == true) {
                     echo $role[$user_pos];
+                    $_SESSION["role"]="customer";
                     //go to customer page
                 }
                 else {
                     echo "shipper";
+                    $_SESSION["role"]="customer";
                     //go to shipper page
                 }  
                 return true;

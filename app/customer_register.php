@@ -21,8 +21,8 @@
     </a>
 </div>
 <div class="center">
-    <form onsubmit = "return customer_validateForm()" method="post" action="">
-        <input type="file" accept=".jpg, .png">
+    <form onsubmit = "return customer_validateForm()" method="post" action="" enctype="multipart/form-data">
+        <input type="file" name="avatar" id="avatar">
         <label class="register-input" for="username">Username</label>
         <input class="register-input" id="username" type="text" name="username"><br>
         <label class="register-input" for="password" >Password</label>
@@ -109,6 +109,8 @@
         }return true;
     } 
 if (isset($_POST['login'])) {   
+    $file = $_FILES["avatar"]["tmp_name"];
+    $path = "avatar/".$_FILES["avatar"]["name"];
     $username = $_POST["username"];
     $password = $_POST["password"];
     $name = $_POST["name"];
@@ -116,11 +118,10 @@ if (isset($_POST['login'])) {
     if (validate_username($username) == true && validate_password($password) == true && validate_name($name) == true && validate_address($address) == true && check_username($username) == true) {
         $hashed_password = password_hash("$password",PASSWORD_DEFAULT);
         $list = array (
-        array("customer", $username, $hashed_password,$name,$address)
-        );
+        array("customer", $username, $hashed_password,$name,$address,$path));
         foreach($list as $char) {
             fputcsv($myfile, $char);
-        } 
+        } move_uploaded_file($file, $path);  
         echo "Register successfully";     
     } 
 }        

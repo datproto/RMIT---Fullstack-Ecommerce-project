@@ -21,8 +21,8 @@
     </a>
 </div>
 <div class="center">
-    <form onsubmit = "return shipper_validateForm()" method="post" action="">
-        <input type="file" accept=".jpg, .png">
+    <form onsubmit = "return customer_validateForm()" method="post" action="" enctype="multipart/form-data">
+        <input type="file" name="avatar" id="avatar">
         <label class="register-input" for="username" value>Username</label> 
         <input class="register-input" id="username" name="username" type="text"><br>
         <label class="register-input" for="password">Password</label>
@@ -92,18 +92,20 @@
             }
         }return true;   
     }
-    if (isset($_POST['login'])) {   
+    if (isset($_POST['login'])) {  
+        $file = $_FILES["avatar"]["tmp_name"];
+        $path = "avatar/".$_FILES["avatar"]["name"]; 
         $username = $_POST["username"];
         $password = $_POST["password"];
         $hub = $_POST["distribution-hub"];
         if (validate_username($username) == true && validate_password($password) == true && check_username($username) == true) {
             $hashed_password = password_hash("$password",PASSWORD_DEFAULT);
             $list = array (
-            array("shipper", $username, $hashed_password,$hub,)
+            array("shipper", $username, $hashed_password,$hub,$path)
             );
             foreach($list as $char) {
                 fputcsv($myfile, $char);
-            }  
+            } move_uploaded_file($file, $path);  
             echo "Register successfully";     
         } 
     }      
