@@ -2,7 +2,7 @@
 <html lang="en-us">
 <head>
     <title>Products List</title>
-    <script src="js/addProduct.js"></script>
+    <script src="js/addLocalStorage.js"></script>
 </head>
 <body onload="displayList()">
 <header>

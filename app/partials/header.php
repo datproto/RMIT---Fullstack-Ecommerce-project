@@ -24,7 +24,7 @@
                 <div>
                     <form action="/">
                         <label class="flex gap-0">
-                            <input type="text" placeholder="Search something ..." class="rad-none rad-left-md"/>
+                            <input type="text" id="searchbar" placeholder="Search something ..." class="rad-none rad-left-md"/>
                             <button class="btn btn-square bg-red text-md text-white rad-right-md"><i class="fa-solid fa-magnifying-glass"></i></button>
                         </label>
                     </form>
