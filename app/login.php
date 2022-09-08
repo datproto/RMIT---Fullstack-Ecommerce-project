@@ -27,7 +27,6 @@
             $user_pos = array_search($login_name,$username);
             if(password_verify($login_pass,$password[$user_pos])) {
                 if (preg_match("/^vendor$/",$role[$user_pos]) == true) {
-                    header("Location: vendor_my_account.php");
                     echo $role[$user_pos];
                     //go to vendor page
                 }
