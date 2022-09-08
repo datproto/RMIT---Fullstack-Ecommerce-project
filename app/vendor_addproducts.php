@@ -4,7 +4,7 @@
     <title>Add products</title>
     <script src="js/addLocalStorage.js"></script>
 </head>
-<body onload="displayList()">
+<body>
 <header>
     <?php
     include 'partials/header.php';

@@ -10,6 +10,7 @@
     <title>RMIT - Ecommerce</title>
     <link rel="stylesheet" href="../styles/main.css">
     <script src="https://kit.fontawesome.com/25adc7f9b5.js" crossorigin="anonymous"></script>
+    <script src="js/search_bar.js"></script>
 </head>
 <body>
 
@@ -25,7 +26,7 @@
                     <form action="/">
                         <label class="flex gap-0">
                             <input type="text" id="searchbar" placeholder="Search something ..." class="rad-none rad-left-md"/>
-                            <button class="btn btn-square bg-red text-md text-white rad-right-md"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            <button class="btn btn-square bg-red text-md text-white rad-right-md" onclick="search()"><i class="fa-solid fa-magnifying-glass"></i></button>
                         </label>
                     </form>
                 </div>

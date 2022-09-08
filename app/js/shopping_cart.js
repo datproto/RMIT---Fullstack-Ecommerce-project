@@ -1,4 +1,4 @@
-
+window.onload=doShowAll();
 // Dynamically populate the table with shopping list items.
 //Step below can be done via PHP and AJAX, too.
 function doShowAll() {
@@ -63,6 +63,3 @@ function ClearAll() {
     localStorage.clear();
     doShowAll();
 }
-
-
-window.onload=doShowAll();
