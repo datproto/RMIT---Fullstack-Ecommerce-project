@@ -9,16 +9,15 @@ window.onload = function ()
 }
 
 function displayList() {
-    var list = "<tr><th>Product Name</th><th>Product Price</th></tr>\n";
+    var list = "<table><tr><th>Product Name</th><th>Product Price</th></tr>\n";
+    let finalHTMLEnd = "</table>";
     for (let i = 0; i <= localStorage.length-1; i++) {
         var key = localStorage.key(i);
         list += "<tr><td>" + key + "</td>\n<td>"
             + localStorage.getItem(key) + "</td></tr>\n";
+
     }
-    if (list === "<tr><th>Item</th><th>Value</th></tr>\n") {
-        list += "<tr><td><i>empty</i></td>\n<td><i>empty</i></td></tr>\n";
-    }
-    document.getElementById("display_div").innerHTML = list;
+    document.getElementById("display_div").innerHTML = list + finalHTMLEnd;
 }
 
 

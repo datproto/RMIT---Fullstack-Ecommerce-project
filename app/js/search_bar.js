@@ -17,10 +17,9 @@ function search() {
     // Do your DOM manipulation magic
     if (localStorageItem !== null){
         var elementValue = $('#MyTable')
-            .find('tr#key_' + localStorageItem)         // filter
+            .find('tr#key_' + localStorageItem)         // code for filter
             .children('td.two')
             .text();
-
         console.log(elementValue);
     } else {
         alert("SORRY THIS ITEM IS NOT AVAILABLE")
