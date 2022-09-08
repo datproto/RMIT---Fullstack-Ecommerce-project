@@ -1,14 +1,3 @@
-<?php
-    $product_path = $_SERVER['DOCUMENT_ROOT'];
-    $product_path .= "/db/product.db";
-
-    $product_json = file_get_contents($product_path);
-    $products_array = json_decode(preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $product_json), true);
-?>
-
-<script src="/js/products.js"></script>
-<script src="/js/utils.js"></script>
-
 <!doctype html>
 <html lang="en">
 <head>
