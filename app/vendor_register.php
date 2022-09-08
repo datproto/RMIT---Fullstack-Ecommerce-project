@@ -21,7 +21,7 @@
     </a>
 </div>
 <div class="center">
-    <form onsubmit = "return vendor_validateForm()" method="post" action="">
+    <form onsubmit = "return vendor_validateForm()" method="post" action="" enctype="multipart/form-data">
         <input type="file" name="avatar" id="avatar">
         <label class="register-input" for="username">Username</label>
         <input class="register-input" id="username" name="username" type="text"><br>
@@ -138,14 +138,8 @@
             } return true;
         }
     if (isset($_POST["login"])) {
-        $target_dir = "avatar/";
-        $file = $_FILES["avatar"]["name'"];
-	    $path = pathinfo($file);
-	    $filename = $path["filename"];
-	    $ext = $path["extension"];
-	    $temp_name = $_FILES["avatar"]['tmp_name'];
-	    $path_filename_ext = $target_dir.$filename.".".$ext;
-        print_r($target_file);
+        $file = $_FILES["avatar"]["tmp_name"];
+        $path = "avatar/".$_FILES["avatar"]["name"];
         $username = $_POST["username"];
         $password = $_POST["password"];
         $business_name = $_POST["business_name"];
@@ -154,24 +148,16 @@
         && check_business_address($business_address) == true) {
             $hashed_password = password_hash("$password",PASSWORD_DEFAULT); 
             $list = array (
-            array("vendor", $username, $hashed_password,$business_name,$business_address)
+            array("vendor", $username, $hashed_password,$business_name,$business_address, $path)
             );
             foreach($list as $char) {
                 fputcsv($myfile, $char);
-            } move_uploaded_file($temp_name, $path_filename_ext);
+                
+            }
+            move_uploaded_file($file, $path);
             echo "Register successfully";          
         } 
     }
 ?>
 <?php
     include 'partials/footer.php';
-    $target_dir = "avatar/";
-    $file = $_FILES["avatar"]["name'"];
-    $path = pathinfo($file);
-    $filename = $path["filename"];
-    $ext = $path["extension"];
-    $temp_name = $_FILES["avatar"]['tmp_name'];
-    $path_filename_ext = $target_dir.$filename.".".$ext;
-    print_r($target_file);
-    move_uploaded_file($temp_name, $path_filename_ext);
-   

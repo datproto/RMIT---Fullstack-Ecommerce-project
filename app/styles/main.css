@@ -78,3 +78,7 @@ a:hover {
 .register-input {
     display: block;
 }
+
+img {
+    border-radius: 50%;
+  }
