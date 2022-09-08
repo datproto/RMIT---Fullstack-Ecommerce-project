@@ -41,8 +41,6 @@
 <?php
 include 'partials/footer.php';
 ?>
-</body>
-</html>
 
 
 <script>
@@ -50,3 +48,5 @@ include 'partials/footer.php';
         alert(id)
     }
 </script>
+</body>
+</html>
