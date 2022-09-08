@@ -22,7 +22,7 @@
                     <h4><?php echo $a['short'] ?></h4>
                     <p class="descriptionText"><?php echo $a['description'] ?></p>
                     <div class="flex gap-md">
-                        <a href="product/index.php?id=<?php echo $a['id'] ?>" class="btn btn-sm bg-red rad-xs text-white font-bold">Add to Cart</a>
+                        <a href="#" class="btn btn-sm bg-red rad-xs text-white font-bold" onclick="addToCart('<?php echo $a['id'] ?>')">Add to Cart</a>
                         <button class="btn btn-sm bg-none font-medium" style="padding-left: 0;"><i class="fa-regular fa-heart text-red"></i> Add to Wish</button>
                     </div>
                 </div>
@@ -41,6 +41,10 @@ include 'partials/footer.php';
 
 
 <script>
+    function addToCart(id) {
+        alert(id)
+    }
+
     function navigateToProduct(id) {
         sessionStorage.setItem('product_id', id);
         window.location=`product/index.php`;

@@ -1,7 +1,8 @@
 <?php
 ?>
-    </main>
-    <footer>
+</main>
+<footer class="w-full bg-black p-3">
 
-    </footer>
+</footer>
 </body>
+</html>
