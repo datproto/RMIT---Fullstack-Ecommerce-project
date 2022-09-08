@@ -8,7 +8,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "tailwind": "npx tailwindcss -i ./styles/tailwind.css -o ./styles/main.css --minify --watch"
+    "tailwind": "npx tailwindcss -i ./styles/tailwind.css -o styles/main.css --minify --watch"
   },
   "devDependencies": {}
 }

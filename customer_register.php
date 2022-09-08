@@ -1,7 +1,7 @@
 <?php
     include 'partials/header.php';
 ?>
-<script src="./js/customer_FormValidation.js"></script>
+<script src="jsustomer_FormValidation.js"></script>
 <h1 class="heading-center">Register</h1>
 <div class="flex center gap-xs pad  ">
     <a href="customer_register.php">

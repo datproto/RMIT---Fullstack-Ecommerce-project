@@ -34,7 +34,7 @@
             <div class="right-menu flex gap-xl">
                 <ul class="flex gap-xl">
                     <li>
-                        <a href="my-account.php">
+                        <a href="../my-account.phpphp">
                             <i class="fa-solid fa-cart-shopping"></i>
                         </a>
                     </li>
