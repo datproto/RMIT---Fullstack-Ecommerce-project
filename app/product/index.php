@@ -41,7 +41,6 @@
         addLocalStorage("buy_prod", {user: uid, prod: prod_id}, 'array', 'append')
     }
 </script>
-
 <?php
     include '../partials/footer.php';
 ?>

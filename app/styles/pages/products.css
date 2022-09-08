@@ -9,6 +9,16 @@ h1 {
   /*width: fit-content;*/
 }
 
+.productItemDescription {
+  flex-direction: row;
+  display: flex;
+}
+
+.productItemDescription .description {
+  padding: 12px;
+}
+
+
 .detailsButton {
   color: var(--red);
   background: transparent;

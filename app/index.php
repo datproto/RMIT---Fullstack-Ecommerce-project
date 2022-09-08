@@ -27,12 +27,6 @@ $products_array = json_decode(($product_json), true);
     <?php } ?>
 </div>
 
-<?php
-include 'partials/footer.php';
-?>
-</body>
-</html>
-
 
 <script>
     function navigateToProduct(id) {
@@ -40,3 +34,7 @@ include 'partials/footer.php';
         window.location=`product/index.php`;
     }
 </script>
+
+<?php
+include 'partials/footer.php';
+?>
