@@ -39,3 +39,4 @@ $prods = get_item('id',$_GET['id'],json_decode($product_json))[0];
 <?php
 include 'partials/footer.php';
 ?>
+
