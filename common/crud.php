@@ -31,7 +31,7 @@ function read($db_path) {
     fclose($fp);
 
     // encode array to json
-    return json_encode($json);
+    return json_decode(json_encode($json));
 }
 
 function get_item($key, $filter, $array){

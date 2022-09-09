@@ -1,26 +1,35 @@
 <?php
-    include 'common/crud.php';
+    session_start();
+    $path = $_SERVER['DOCUMENT_ROOT'];
+    include_once($path."/common/crud.php");
 
-    $logged = isset($_SESSION["login"]);
-
+    $username = '';
     $role = '';
     $pass = '';
     $b_name = '';
     $b_address = '';
     $avatar = '';
+    $logged = false;
+
+    if (isset($_GET['login_name'])) {
+        $_SESSION["u_name"] = $_GET['login_name'];
+        $_SESSION["logged"] = true;
+        $logged = $_SESSION["logged"];
+        $username = $_SESSION['u_name'];
+    } elseif (isset($_SESSION['u_name'])) {
+        $logged = $_SESSION["logged"];
+        $username = $_SESSION['u_name'];
+    }
 
     if ($logged) {
-        $username = $_SESSION["u_name"] ;
-        $users = read('db/accounts.db');
-        $curr_user = get_item('uname',$username,json_decode($users))[0];
+        $users = read($path.'/db/accounts.db');
+        $curr_user = get_item('uname',$username,$users)[0];
 
         $role       = $curr_user->role;
         $pass       = $curr_user->pass;
         $b_name     = $curr_user->b_name;
         $b_address  = $curr_user->b_address;
         $avatar     = $curr_user->avatar;
-    } else {
-        header("Location: ");
     }
 ?>
 <!doctype html>
@@ -81,7 +90,7 @@
                             <?php } ?>
                         </li>
                     </ul>
-                    <a href="my_account.php" class="flex items-center">
+                    <a href="../my_account.php" class="flex items-center">
                         <img src="<?php echo $avatar ?>" alt="" class="w-3xl rad-full" />
                     </a>
                 <?php
