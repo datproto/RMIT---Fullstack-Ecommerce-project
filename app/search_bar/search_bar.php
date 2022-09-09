@@ -10,7 +10,7 @@ echo $msg;
                 <form method="post">
                     <input type="text" name="search_bar" id="search_bar" placeholder="Search for a product ..."><br>
                     <label for="search_bar"></label>
-                    <input type="submit" id="search_bar" value="Search" onclick="search()">
+                    <input type="submit" id="search_bar" value="Search" onclick="submit_search()">
                 </form>
             </div>
             <div class="w-full flex flex-col md:flex-row gap-md">

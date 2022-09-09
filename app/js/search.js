@@ -1,3 +1,3 @@
-function search() {
+function submit_search() {
 
 }
