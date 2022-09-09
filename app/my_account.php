@@ -1,7 +1,7 @@
 <?php
-    session_start();
     # My Account page
-    include 'partials/header.php';
+    require('config.php');
+    include($path.'/partials/header.php');
 ?>
 
 <?php
@@ -67,13 +67,13 @@
                         <p><?php echo $b_address ?> </p>
                     </div>
                     <?php } ?>
-                    <form action="logout.php" method="post" onclick="document.location='/'; return false" >
-                        <button type="button" id="logout" name="logout" value="logout" class="bg-red btn btn-md text-white font-medium rad-sm"> Log out </button>
+                    <form action="logout.php" method="post" >
+                        <input type="submit" id="logout" name="logout" value="Log out" class="bg-red btn btn-md text-white font-medium rad-sm"/>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 <?php
-    include 'partials/footer.php';
+    include($path.'/partials/footer.php');
 ?>

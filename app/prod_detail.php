@@ -1,6 +1,7 @@
 <?php
 session_start();
-include 'partials/header.php';
+require('config.php');
+include($path.'/partials/header.php');
 
 $product_json = file_get_contents('db/product.db');
 $prods = json_decode(($product_json), true);
@@ -43,5 +44,5 @@ $prods = json_decode(($product_json), true);
     }
 </script>
 <?php
-include 'partials/footer.php';
+include($path.'/partials/footer.php');
 ?>

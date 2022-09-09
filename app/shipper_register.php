@@ -1,5 +1,6 @@
 <?php
-    include 'partials/header.php';
+    require('config.php');
+    include($path.'/partials/header.php');
 ?>
 <script src="./js/shipper_FormValidation.js"></script>
 <h1 class="heading-center">Register</h1>
@@ -121,6 +122,6 @@
     }      
 ?>
 <?php
-    include 'partials/footer.php';
+    include($path.'/partials/footer.php');
 ?>
   
