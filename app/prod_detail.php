@@ -2,13 +2,13 @@
 session_start();
 include 'partials/header.php';
 
-$product_json = file_get_contents('db/product.db');
+$product_json = read('db/product.db');
 $prods = json_decode(($product_json), true);
 ?>
 <div class="flex gap-lg">
     <?php
     foreach ($prods as $p) {
-        if ($p['id'] == $_GET['id']) {
+        if ($p -> id == $_GET['id']) {
             ?>
             <div class="prod flex flex-col gap-md items-center">
                 <div class="w-full flex flex-col md:flex-row gap-md">

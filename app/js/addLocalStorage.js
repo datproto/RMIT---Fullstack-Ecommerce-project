@@ -28,10 +28,10 @@ function addLocalStorage(name, value, type = "str", action = "add") {
     }
 }
 
-window.onload = function ()
-{
-    displayList();
-}
+// window.onload = function ()
+// {
+//     displayList();
+// }
 
 function displayList() {
     var list = "<table><tr><th>Product Name</th><th>Product Price</th></tr>\n";
