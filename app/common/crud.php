@@ -1,6 +1,5 @@
 <?php
 function create_update($data, $db_path) {
-    echo $db_path;
     $decode = json_decode($data, true);
 
     $db_file = fopen($db_path, 'w');
@@ -32,5 +31,14 @@ function read($db_path) {
     fclose($fp);
 
     // encode array to json
-    echo json_encode($json);
+    return json_encode($json);
+}
+
+function get_item($key, $filter, $array){
+    $filtered_array = [];
+    for ($i = 0; $i < count($array); $i++){
+        if($array[$i]->$key == $filter)
+            $filtered_array[] = $array[$i];
+    }
+    return $filtered_array;
 }

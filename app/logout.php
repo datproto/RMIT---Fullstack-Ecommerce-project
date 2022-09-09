@@ -1,6 +1,5 @@
 <?php
 session_start();
-unset($_SESSION["login"]);
-echo "You have been logged out";
-
+session_unset();
+session_destroy();
 die();

@@ -3,36 +3,47 @@
 ?>
 <script src="./js/customer_FormValidation.js"></script>
 <h1 class="heading-center">Register</h1>
-<div class="flex center gap-xs pad  ">
+<div class="flex center">
     <a href="customer_register.php">
-        <div class="bg-blue"> 
+        <div class="bg-blue rad-left-md text-white font-medium" style="padding: .75rem 1rem">
             <div class="">Customer</div>
         </div>
     </a>
     <a href="vendor_register.php">
-        <div class="bg-gray">
+        <div class="bg-gray" style="padding: .75rem 1rem">
             <div class="test3">Vendor</div>
         </div>
     </a>
     <a href="shipper_register.php">
-        <div class="bg-gray">
+        <div class="bg-gray rad-right-md" style="padding: .75rem 1rem">
             <div class="test3">Shipper</div>
         </div>
     </a>
 </div>
 <div class="center">
-    <form onsubmit = "return customer_validateForm()" method="post" action="" enctype="multipart/form-data">
-        <input type="file" name="avatar" id="avatar">
-        <label class="register-input" for="username">Username</label>
-        <input class="register-input" id="username" type="text" name="username"><br>
-        <label class="register-input" for="password" >Password</label>
-        <input class="register-input" id="password" name="password" type="text"><br>
-        <label class="register-input" for="name"> Name</label>
-        <input class="register-input" id="name" name="name" type="text"><br>
-        <label class="register-input" for="address">Address</label>
-        <input class="register-input" id="address" name="address" type="text"><br>
-        <input type="submit" name="login" class="bg-red btn">
-        </form>
+    <form class="flex flex-col gap-md items-center" onsubmit="return customer_validateForm()" method="post" action="" enctype="multipart/form-data">
+        <div class="w-full">
+            <input class="w-full" type="file" name="avatar" id="avatar">
+        </div>
+        <div class="w-full">
+            <label class="register-input" for="username">Username</label>
+            <input class="register-input w-full" id="username" type="text" name="username"/>
+        </div>
+        <div class="w-full">
+            <label class="register-input" for="password">Password</label>
+            <input class="register-input w-full" id="password" name="password" type="password">
+        </div>
+        <div class="w-full">
+            <label class="register-input" for="name">Name</label>
+            <input class="register-input w-full" id="name" name="name" type="text">
+        </div>
+        <div class="w-full">
+            <label class="register-input" for="address">Address</label>
+            <input class="register-input w-full" id="address" name="address" type="text"></div>
+        <div class="w-1/2">
+            <input type="submit" name="login" class="w-full bg-red btn btn-md text-white font-medium">
+        </div>
+    </form>
 </div>
 <?php
     function passwordIsValid( $pass) {
@@ -55,8 +66,8 @@
         $file=fopen("db/accounts.db","r");
         $new=array();
         while (($data = fgetcsv($file)) !== FALSE) {
-            array_push($new,$data[1]);   
-    }
+            $new[] = $data[1];
+        }
         if (in_array($username,$new)) {
             echo "Username is taken";
             return false;  
@@ -115,7 +126,7 @@ if (isset($_POST['login'])) {
     $password = $_POST["password"];
     $name = $_POST["name"];
     $address = $_POST["address"];
-    if (validate_username($username) == true && validate_password($password) == true && validate_name($name) == true && validate_address($address) == true && check_username($username) == true) {
+    if (validate_username($username) && validate_password($password) && validate_name($name) && validate_address($address) && check_username($username)) {
         $hashed_password = password_hash("$password",PASSWORD_DEFAULT);
         $list = array (
         array("customer", $username, $hashed_password,$name,$address,$path));

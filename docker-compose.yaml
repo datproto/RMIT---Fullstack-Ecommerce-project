@@ -12,6 +12,7 @@ services:
     volumes:
       - ./app:/var/www/html
   php:
+    user: 1000:1000
     container_name: rmit_php
     build: ./docker/php
     volumes:
