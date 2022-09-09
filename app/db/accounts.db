@@ -1,9 +1,11 @@
+role,uname,pass,b_name,b_address,avatar
 vendor,Vinhduaws,$2y$10$2ptlurYHzjjuqRivGPifk.wg.sQMNGDe1PM25piipkLy4OO.YuOmK,name11ads,address1zxczx,avatar/210715078.jpg
-customer,Vinhduaws2,$2y$10$7fvmJcRuvDC5ffCknSHj2.j87p1xd7F33GKrEx7ag8yh.XLX5S4L2,dinhdd,hcmzcx
-customer,vinh1234V,$2y$10$PWXusRNpxs5MtGeu6XvOLe3nhPwhHvba.j0qMq7grMphZ4QyPytJC,dinh132,"nha be123"
-customer,vinh1234V3,$2y$10$Hp.L9HA6/iiLftOAp3LXpu17yHz28GXP1wvYyq3nOR/upooBUxMHe,12312312,adsdasdas
-customer,vinh1234V4,$2y$10$zk3SSSDLR8YMPADeNTznf.DSWivtv62VGPJ3byTCCPmGsoG2pP/J.,dinhdasd,hcmzcxzx
-customer,vinh1234V5,$2y$10$G2eMnKItQtR4Ne8PYpbhZu8pvEpqiXlx8iJJOyVl9g7X5ceB8EaMq,qweqwe,asdasd,avatar/
+customer,Vinhduaws2,$2y$10$7fvmJcRuvDC5ffCknSHj2.j87p1xd7F33GKrEx7ag8yh.XLX5S4L2,dinhdd,hcmzcx,
+customer,vinh1234V,$2y$10$PWXusRNpxs5MtGeu6XvOLe3nhPwhHvba.j0qMq7grMphZ4QyPytJC,dinh132,"nha be123",
+customer,vinh1234V3,$2y$10$Hp.L9HA6/iiLftOAp3LXpu17yHz28GXP1wvYyq3nOR/upooBUxMHe,12312312,adsdasdas,
+customer,vinh1234V4,$2y$10$zk3SSSDLR8YMPADeNTznf.DSWivtv62VGPJ3byTCCPmGsoG2pP/J.,dinhdasd,hcmzcxzx,
+customer,vinh1234V5,$2y$10$G2eMnKItQtR4Ne8PYpbhZu8pvEpqiXlx8iJJOyVl9g7X5ceB8EaMq,qweqwe,asdasd,
 customer,vinh1234V6,$2y$10$H8D2a/iHIXEf5/gwaQcs6OjRUbPIcQFT/Bci2RQqWT9n0IrLEAr0.,dinhdas,"nha bezcx",avatar/210715532.jpg
 customer,vinh1234V687,$2y$10$ppRe6dgvzeDb1yQKY3tU7Oy9ae3Dk2stxXmhHGOa4NkoPVuz2tHYO,dinhad,hcmads,avatar/whiteboard_2022-08-30_17-51-52-134.jpg
-shipper,vinh1234V32131,$2y$10$rfdMkD2lDl4ZvUMFlwSR6u/9HPMrit03qly6.QGABoaBOGyWRE8Lq,hub2,avatar/210722520.jpg
+shipper,vinh1234V32131,$2y$10$rfdMkD2lDl4ZvUMFlwSR6u/9HPMrit03qly6.QGABoaBOGyWRE8Lq,,hub2,avatar/210722520.jpg
+customer,datproto,$2y$10$zAizk58lfnHVyNwcTw7AG.tyDNeeOGe3/dGWJU6iMWAHUO3bpmBoG,"Dat Do Tat",Somewhere,avatar/1.jpg

@@ -3,37 +3,47 @@
 ?>
 <script src="./js/shipper_FormValidation.js"></script>
 <h1 class="heading-center">Register</h1>
-<div class="flex center gap-xs pad  ">
+<div class="flex center">
     <a href="customer_register.php">
-        <div class="bg-gray"> 
+        <div class="bg-gray rad-left-md" style="padding: .75rem 1rem">
             <div class="">Customer</div>
         </div>
     </a>
     <a href="vendor_register.php">
-        <div class="bg-gray ">
+        <div class="bg-gray" style="padding: .75rem 1rem">
             <div class="test3">Vendor</div>
         </div>
     </a>
     <a href="shipper_register.php">
-        <div class="bg-blue">
+        <div class="bg-blue text-white font-medium rad-right-md" style="padding: .75rem 1rem">
             <div class="test3">Shipper</div>
         </div>
     </a>
 </div>
 <div class="center">
-    <form onsubmit = "return customer_validateForm()" method="post" action="" enctype="multipart/form-data">
-        <input type="file" name="avatar" id="avatar">
-        <label class="register-input" for="username" value>Username</label> 
-        <input class="register-input" id="username" name="username" type="text"><br>
-        <label class="register-input" for="password">Password</label>
-        <input class="register-input" id="password" name="password" type="text"><br>
-        <label for="distribution-hub">Choose a distribution hub</label>
-        <select class="register-input" name="distribution-hub" id="distribution-hub">
-            <option value="hub1">hub 1</option>
-            <option value="hub2">hub 2</option>
-            <option value="hub3">hub 3</option>
-        </select><br>
-        <input type="submit" name="login" class="bg-red btn">
+    <form class="flex flex-col gap-md items-center" onsubmit="return customer_validateForm()" method="post" action="" enctype="multipart/form-data">
+        <div class="w-full">
+            <input class="w-full" type="file" name="avatar" id="avatar">
+        </div>
+        <div class="w-full">
+            <label class="register-input" for="username" value>Username</label>
+            <input class="register-input w-full" id="username" name="username" type="text">
+        </div>
+        <div class="w-full">
+            <label class="register-input" for="password">Password</label>
+            <input class="register-input w-full" id="password" name="password" type="text">
+        </div>
+        <div class="w-full">
+            <label for="distribution-hub">Choose a distribution hub</label>
+            <select class="register-input w-full" name="distribution-hub" id="distribution-hub">
+                <option value="hub1">hub 1</option>
+                <option value="hub2">hub 2</option>
+                <option value="hub3">hub 3</option>
+            </select>
+        </div>
+        <div class="w-full">
+            <input type="submit" name="login" class="w-full bg-red btn btn-md text-white font-medium">
+        </div>
     </form>
 </div>
 <?php
