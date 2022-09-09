@@ -42,3 +42,7 @@
 .border-blue {
     outline-color: var(--blue);
 }
+
+.border-none {
+    border: 0;
+}

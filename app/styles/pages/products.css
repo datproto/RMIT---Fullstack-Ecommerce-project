@@ -1,0 +1,49 @@
+h1 {
+  /*padding: 24px;*/
+}
+
+.productItem {
+  border: 1px solid var(--gray);
+  border-radius: 10px;
+  padding: 8px 16px 8px 8px;
+  /*width: fit-content;*/
+}
+
+.productItemDescription {
+  flex-direction: row;
+  display: flex;
+}
+
+.productItemDescription .description {
+  padding: 12px;
+}
+
+
+.detailsButton {
+  color: var(--red);
+  background: transparent;
+  margin-top: 16px;
+}
+
+.detailsButton:focus,
+.detailsButton:hover {
+  color: var(--gray);
+}
+
+.descriptionText {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px;
+}
+
+@media screen and (max-width: 768px) and (min-width: 500px), (min-width: 1000px){
+  .descriptionText {
+    max-width: 300px;
+  }
+
+  .productList {
+    justify-content: center;
+    /*grid-template-columns: none;*/
+  }
+}

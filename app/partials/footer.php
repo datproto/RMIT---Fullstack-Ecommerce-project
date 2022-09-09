@@ -1,7 +1,8 @@
 <?php
 ?>
 </main>
-<script src="js/addLocalStorage.js"></script>
-<script src="js/removeLocalStorage.js"></script>
+<footer class="w-full bg-black p-3">
+
+</footer>
 </body>
 </html>
