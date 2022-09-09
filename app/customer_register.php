@@ -122,10 +122,16 @@
 if (isset($_POST['login'])) {   
     $file = $_FILES["avatar"]["tmp_name"];
     $path = "avatar/".$_FILES["avatar"]["name"];
+    $role = "customer";
     $username = $_POST["username"];
     $password = $_POST["password"];
     $name = $_POST["name"];
     $address = $_POST["address"];
+    //$role       = $curr_user->role;
+    //$pass       = $curr_user->pass;
+    //$name     = $curr_user->b_name;
+    //$b_address  = $curr_user->b_address;
+    //$avatar     = $curr_user->avatar;
     if (validate_username($username) && validate_password($password) && validate_name($name) && validate_address($address) && check_username($username)) {
         $hashed_password = password_hash("$password",PASSWORD_DEFAULT);
         $list = array (

@@ -1,4 +1,5 @@
 <?php
+session_start();
     include 'partials/header.php';
 ?>
 <h1 class="heading-center">Login</h1>

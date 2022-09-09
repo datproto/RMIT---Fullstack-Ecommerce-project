@@ -5,6 +5,10 @@
 ?>
 
 <?php
+if (isset($_SESSION["u_name"])){
+    echo"exist";
+} else echo "die";
+    $username = $_SESSION["u_name"];
     $file = fopen("db/accounts.db","r");
     $account_read = fopen("db/my_accounts.db","r");
     $account_w = fopen("db/my_accounts.db","w");
@@ -28,9 +32,9 @@
                         $path = "avatar/".$_FILES["chg_ava"]["name"];
                         $account_w4 = fopen("db/my_accounts.db","r");
                         move_uploaded_file($file2, $path);
-                        $file_contents= file_get_contents("db/my_accounts.db");
+                        $file_contents= file_get_contents("db/accounts.db");
                         $file_contents = str_replace($avatar,$path,$file_contents);
-                        file_put_contents("db/my_accounts.db",$file_contents);
+                        file_put_contents("db/accounts.db",$file_contents);
 
                         while (($data = fgetcsv($file)) !== FALSE) {
                             if ($username == $data[1]) {
