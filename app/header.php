@@ -1,5 +1,6 @@
 <?php
-    include 'common/crud.php';
+    $path = $_SERVER['DOCUMENT_ROOT'];
+    include_once($path."/common/crud.php");
 
     $logged = isset($_SESSION["login"]);
 
