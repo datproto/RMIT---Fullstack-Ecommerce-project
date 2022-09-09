@@ -60,7 +60,7 @@
 </div>
 <?php
 
-    include($path.'/footer.php');
+    include($path.'/partials/footer.php');
 ?>
 
 

@@ -105,18 +105,18 @@
     }
     if (isset($_POST['login'])) {  
         $file = $_FILES["avatar"]["tmp_name"];
-        $path = "avatar/".$_FILES["avatar"]["name"]; 
+        $ava_path = "avatar/".$_FILES["avatar"]["name"];
         $username = $_POST["username"];
         $password = $_POST["password"];
         $hub = $_POST["distribution-hub"];
-        if (validate_username($username) == true && validate_password($password) == true && check_username($username) == true) {
+        if (validate_username($username) && validate_password($password) && check_username($username)) {
             $hashed_password = password_hash("$password",PASSWORD_DEFAULT);
             $list = array (
-            array("shipper", $username, $hashed_password,$hub,$path)
+            array("shipper", $username, $hashed_password,$hub,$ava_path)
             );
             foreach($list as $char) {
                 fputcsv($myfile, $char);
-            } move_uploaded_file($file, $path);  
+            } move_uploaded_file($file, $ava_path);
             echo "Register successfully";     
         } 
     }      
