@@ -4,7 +4,10 @@ include 'partials/header.php';
 $product_json = file_get_contents('db/product.db');
 $products_array = json_decode(($product_json), true);
 ?>
-<h1>Products</h1>
+<div class="grid grid-col-3 gap-lg">
+    <h1>Products</h1>
+    <button class="btn btn-sm bg-red rad-xs text-white font-bold" onclick="navigateTo('product/add.php')">Add product</button>
+</div>
 <div class="grid grid-col-3 gap-lg">
     <?php foreach ($products_array as $a) { ?>
         <div class="w-full flex gap-md items-center" style="border: 1px solid black">
@@ -26,14 +29,6 @@ $products_array = json_decode(($product_json), true);
         </div>
     <?php } ?>
 </div>
-
-
-<script>
-    function navigateToProduct(id) {
-        sessionStorage.setItem('product_id', id);
-        window.location=`product/index.php`;
-    }
-</script>
 
 <?php
 include 'partials/footer.php';

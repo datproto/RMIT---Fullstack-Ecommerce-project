@@ -8,9 +8,12 @@
     <title>RMIT - Ecommerce</title>
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/pages/products.css">
+    <link rel="stylesheet" href="../styles/pages/add.css">
     <script src="https://kit.fontawesome.com/25adc7f9b5.js" crossorigin="anonymous"></script>
     <script src="../js/addLocalStorage.js"></script>
     <script src="../js/removeLocalStorage.js"></script>
+    <script src="../js/products.js"></script>
+    <script src="../js/utils.js"></script>
 </head>
 <body>
 

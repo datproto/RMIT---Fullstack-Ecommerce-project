@@ -54,7 +54,7 @@
         $new=array();
         while (($data = fgetcsv($file)) !== FALSE) {
             array_push($new,$data[1]);   
-    }
+        }
         if (in_array($username,$new)) {
             echo "Username is taken";
             return false;  

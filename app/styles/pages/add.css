@@ -1,0 +1,31 @@
+h1 {
+  align-self: center;
+}
+
+.container {
+  margin: auto;
+}
+
+.imageContainer{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid gray;
+  padding: 16px;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.imageContainer > img {
+  max-width: 100%;
+  max-height: 150px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+}
+
+.field label {
+  margin-bottom: 4px;
+}
