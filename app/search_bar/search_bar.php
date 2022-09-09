@@ -1,6 +1,4 @@
 <?php
-session_start();
-include 'app/partials/header.php';
 $product_json = read('db/lazada.db');
 $msg = $_POST['search_bar'];
 $prods = get_item('id', $msg ,json_decode($product_json))[0];
@@ -10,8 +8,9 @@ echo $msg;
         <div class="prod flex flex-col gap-md items-center">
             <div>
                 <form method="post">
-                    <input type="text" name="search_bar" id="search_bar" placeholder="Search for a product here..."><br>
+                    <input type="text" name="search_bar" id="search_bar" placeholder="Search for a product ..."><br>
                     <label for="search_bar"></label>
+                    <input type="submit" id="search_bar" value="Search" onclick="search()">
                 </form>
             </div>
             <div class="w-full flex flex-col md:flex-row gap-md">

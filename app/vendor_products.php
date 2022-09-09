@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-<html lang="en-us">
-<head>
-    <title>Products List</title>
-    <script src="js/addLocalStorage.js"></script>
-</head>
-<body>
-<header>
-    <?php
-    include 'partials/header.php';
-    ?>
-</header>
+<?php
+include 'partials/header.php';
+include 'search_bar/search_bar.php';
+?>
+
 
 
 <div class="flex gap-xl">
@@ -23,11 +16,6 @@
 
 
 
-
-<footer>
 <?php
 include 'partials/footer.php';
 ?>
-</footer>
-</body>
-</html>
