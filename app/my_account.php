@@ -5,9 +5,6 @@
 ?>
 
 <?php
-if (isset($_SESSION["u_name"])){
-    echo"exist";
-} else echo "die";
     $username = $_SESSION["u_name"];
     $file = fopen("db/accounts.db","r");
     $account_read = fopen("db/my_accounts.db","r");
@@ -30,6 +27,7 @@ if (isset($_SESSION["u_name"])){
                     if (isset($_POST["ava"])) {
                         $file2 = $_FILES["chg_ava"]["tmp_name"];
                         $path = "avatar/".$_FILES["chg_ava"]["name"];
+                        print_r($path);
                         $account_w4 = fopen("db/my_accounts.db","r");
                         move_uploaded_file($file2, $path);
                         $file_contents= file_get_contents("db/accounts.db");
@@ -79,5 +77,5 @@ if (isset($_SESSION["u_name"])){
         </div>
     </div>
 <?php
-    include($path.'/partials/footer.php');
+    include('partials/footer.php');
 ?>
