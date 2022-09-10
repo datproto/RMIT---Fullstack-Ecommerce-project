@@ -7,13 +7,15 @@ include($path . '/partials/header.php');
 <script>
     var json_upload = localStorage.getItem('buy_prod');
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "shopping_cart.php");
+    xmlhttp.open("POST", "shop_addToCart.php");
     xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xmlhttp.send(json_upload);
 </script>
 
 <?php
-$cart_items_array = object_to_array(json_decode($_SESSION['products'], true))['values'];
+$cart_items_array = [];
+if (isset($_SESSION['buy_prod'])) {
+    $cart_items_array = object_to_array($_SESSION['buy_prod']);
+}
 
 $displayed_cart_items = [];
 foreach ($cart_items_array as $item) {
@@ -24,15 +26,15 @@ foreach ($cart_items_array as $item) {
 <div class="flex flex-col lg:flex-row gap-md">
     <div class="flex-1 flex flex-col gap-md rad-sm" style="padding: 1rem; border: 1px solid gray">
         <!-- Product -->
-        <?php foreach ($displayed_cart_items as $item) { ?>
-            <div id="prod-<?php echo $item->id ?>" class="w-full flex items-center justify-between">
+        <?php foreach ($displayed_cart_items as $key=>$item) { ?>
+            <div id="prod-<?php echo $key ?>" class="w-full flex items-center justify-between">
                 <div class="information flex-1 flex items-center gap-md">
                     <img src="<?php echo $item->img ?>" alt="" class="w-8xl rad-md" style="object-fit: cover">
-                    <div style="width: 10rem; max-width: 10rem; ellipsis; white-space: nowrap; overflow: hidden;"><?php echo $item->name ?></div>
+                    <div style="width: 15rem; max-width: 15rem; ellipsis; white-space: nowrap; overflow: hidden;"><?php echo $item->name ?></div>
                     <div>- <?php echo $item->price ?></div>
                 </div>
                 <div class="quantity">
-                    <button class="bg-none text-red font-bold rad-sm">X</button>
+                    <button class="bg-none text-red font-bold rad-sm" onclick="unsetCardProd(<?php echo $key ?>)">X</button>
                 </div>
             </div>
         <?php } ?>
@@ -50,7 +52,17 @@ foreach ($cart_items_array as $item) {
         <button class="btn btn-md bg-red text-white font-bold rad-sm">Check out</button>
     </div>
 </div>
-
+<script>
+function unsetCardProd(key) {
+  let url = "shop_removeFromCart.php";
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", url);
+  xhr.onreadystatechange = function() { if (xhr.readyState === 4 && xhr.status === 200) { console.log(xhr.responseText); } }
+  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhr.send("remove_prod=" + encodeURIComponent(JSON.stringify(key)));
+  window.location.reload();
+}
+</script>
 <?php
 include($path . '/partials/footer.php');
 ?>
