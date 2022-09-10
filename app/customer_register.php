@@ -32,7 +32,7 @@
         </div>
         <div class="w-full">
             <label class="register-input" for="password">Password</label>
-            <input class="register-input w-full" id="password" name="password" type="password">
+            <input class="register-input w-full" id="password" name="password" c>
         </div>
         <div class="w-full">
             <label class="register-input" for="name">Name</label>
