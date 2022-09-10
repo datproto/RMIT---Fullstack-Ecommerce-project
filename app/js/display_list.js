@@ -8,6 +8,9 @@ function displayList() {
     let finalHTMLEnd = "</table>";
     for (let i = 0; i <= localStorage.length-1; i++) {
         var key = localStorage.key(i);
+        if (key === "buy_prod") {
+            continue
+        }
         list += "<tr><td>" + key + "</td>\n<td>"
             + localStorage.getItem(key) + "</td></tr>\n";
 

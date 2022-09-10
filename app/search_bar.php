@@ -43,6 +43,7 @@ echo $msg;
             addLocalStorage("buy_prod", {user: uid, prod: prod_id}, 'array', 'append')
         }
     </script>
+    <script src="js/search.js"></script>
 <?php
 include 'app/partials/footer.php';
 ?>

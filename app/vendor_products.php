@@ -1,5 +1,6 @@
 <?php
 include 'partials/header.php';
+//include 'search_bar.php';
 ?>
 
 
@@ -10,10 +11,10 @@ include 'partials/header.php';
     <div class="second-element">
         <button class="btn btn-md"><a href="vendor_addproducts.php">Add Products</a></button>
     </div>
-</div>
+<div id="display_div"></div>
 
+    <script src="js/display_list.js"></script>
 
 <?php
-include 'js/display_list.js';
 include 'partials/footer.php';
 ?>

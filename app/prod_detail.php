@@ -1,9 +1,10 @@
 <?php
-session_start();
+//session_start();
 require('config.php');
-include($path.'/partials/header.php');
+//include($path.'/partials/header.php');
+include 'partials/header.php';
 
-$product_json = file_get_contents('db/product.db');
+$product_json = file_get_contents('db/lazada.db');
 $prods = json_decode(($product_json), true);
 ?>
 <div class="flex gap-lg">
@@ -39,5 +40,6 @@ $prods = json_decode(($product_json), true);
     }
 </script>
 <?php
-include($path.'/partials/footer.php');
+//include($path.'/partials/footer.php');
+include 'partials/footer.php';
 ?>
