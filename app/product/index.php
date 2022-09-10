@@ -17,7 +17,7 @@
                     <h4><?php echo $p['name'] ?></h4>
                     <p class="md:hidden"><?php echo $p['description'] ?></p>
                     <div class="flex gap-md">
-                        <button class="btn btn-sm bg-red rad-xs text-white font-bold" onclick="addToCart(uid = 1, prod_id = <?php echo $p['id'] ?>)">Add to Cart</button>
+                        <button class="btn btn-sm bg-red rad-xs text-white font-bold" onclick="addToCart(uname = <?php echo $username ?>, prod_id = <?php echo $p['id'] ?>)">Add to Cart</button>
                         <button class="btn btn-sm bg-none font-medium" style="padding-left: 0;"><i class="fa-regular fa-heart text-red"></i> Add to Wish</button>
                     </div>
                 </div>
@@ -35,12 +35,6 @@
     <?php }} ?>
 </div>
 
-<script>
-    function addToCart(uid = 1, prod_id) {
-        console.log(prod_id)
-        addLocalStorage("buy_prod", {user: uid, prod: prod_id}, 'array', 'append')
-    }
-</script>
 <?php
     include '../partials/footer.php';
 ?>
