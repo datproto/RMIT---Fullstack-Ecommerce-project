@@ -19,6 +19,14 @@
     } elseif (isset($_SESSION['u_name'])) {
         $logged = $_SESSION["logged"];
         $username = $_SESSION['u_name'];
+    } else {
+        if ($_SERVER['REQUEST_URI'] === '/') {
+        } elseif ($_SERVER['REQUEST_URI'] === '/index.php') {
+        } elseif (str_contains($_SERVER['REQUEST_URI'], "register")) {
+        } else {
+            header("Location: index.php");
+            exit;
+        }
     }
 
     if ($logged) {
