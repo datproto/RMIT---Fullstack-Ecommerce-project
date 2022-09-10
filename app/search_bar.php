@@ -20,7 +20,7 @@ echo $msg;
                         <h4><?php echo $prods -> name ?></h4>
                         <p class="md:hidden"><?php echo $prods -> description ?></p>
                         <div class="flex gap-md">
-                            <button class="btn btn-sm bg-red rad-xs text-white font-bold" onclick="addToCart(uid = 1, prod_id = <?php echo $prods -> id ?>)">Add to Cart</button>
+                            <button class="btn btn-sm bg-red rad-xs text-white font-bold" onclick="addToCart(uname = <?php echo $username ?>, prod_id = <?php echo $prods -> id ?>)">Add to Cart</button>
                             <button class="btn btn-sm bg-none font-medium" style="padding-left: 0;"><i class="fa-regular fa-heart text-red"></i> Add to Wish</button>
                         </div>
                     </div>
@@ -38,9 +38,9 @@ echo $msg;
     </div>
 
     <script>
-        function addToCart(uid = 1, prod_id) {
+        function addToCart(uname = <?php echo $username ?>, prod_id) {
             console.log(prod_id)
-            addLocalStorage("buy_prod", {user: uid, prod: prod_id}, 'array', 'append')
+            addLocalStorage("buy_prod", {user: uname, prod: prod_id}, 'array', 'append')
         }
     </script>
     <script src="js/search.js"></script>
