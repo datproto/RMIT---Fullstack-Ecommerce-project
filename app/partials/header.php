@@ -1,27 +1,36 @@
 <?php
-include 'common/crud.php';
+    session_start();
+    $path = $_SERVER['DOCUMENT_ROOT'];
+    include_once($path."/common/crud.php");
 
-$logged = isset($_SESSION["login"]);
+    $username = '';
+    $role = '';
+    $pass = '';
+    $b_name = '';
+    $b_address = '';
+    $avatar = '';
+    $logged = false;
 
-$role = '';
-$pass = '';
-$b_name = '';
-$b_address = '';
-$avatar = '';
+    if (isset($_GET['login_name'])) {
+        $_SESSION["u_name"] = $_GET['login_name'];
+        $_SESSION["logged"] = true;
+        $logged = $_SESSION["logged"];
+        $username = $_SESSION['u_name'];
+    } elseif (isset($_SESSION['u_name'])) {
+        $logged = $_SESSION["logged"];
+        $username = $_SESSION['u_name'];
+    }
 
-if ($logged) {
-    $username = $_SESSION["u_name"] ;
-    $users = read('db/accounts.db');
-    $curr_user = get_item('uname',$username,json_decode($users))[0];
+    if ($logged) {
+        $users = read($path.'/db/accounts.db');
+        $curr_user = get_item('uname',$username,$users)[0];
 
-    $role       = $curr_user->role;
-    $pass       = $curr_user->pass;
-    $b_name     = $curr_user->b_name;
-    $b_address  = $curr_user->b_address;
-    $avatar     = $curr_user->avatar;
-} else {
-    header("Location: ");
-}
+        $role       = $curr_user->role;
+        $pass       = $curr_user->pass;
+        $b_name     = $curr_user->b_name;
+        $b_address  = $curr_user->b_address;
+        $avatar     = $curr_user->avatar;
+    }
 ?>
 <!doctype html>
 <html lang="en">
@@ -38,16 +47,16 @@ if ($logged) {
     <script src="../js/removeLocalStorage.js"></script>
 </head>
 <body>
-<header>
-    <nav class="flex justify-between items-center">
-        <div class="left flex items-center gap-xl">
-            <div id="logo">
-                <a href="/">
-                    <img src="" alt="" />
-                </a>
-            </div>
-            <?php
-            if($logged) {
+    <header>
+        <nav class="flex justify-between items-center">
+            <div class="left flex items-center gap-xl">
+                <div id="logo">
+                    <a href="/">
+                        <img src="" alt="" />
+                    </a>
+                </div>
+                <?php
+                    if($logged) {
                 ?>
                 <ul>
                     <?php if ($role === 'customer') { ?>
@@ -65,34 +74,34 @@ if ($logged) {
                     <?php } ?>
                 </ul>
                 <?php
-            }
-            ?>
-        </div>
-        <div class="right-menu flex gap-xl">
-            <?php
-            if($logged) {
+                    }
                 ?>
-                <ul class="flex items-center gap-xl">
-                    <li>
-                        <?php if ($role === 'customer') { ?>
-                            <a href="../shopping_cart.php">
-                                <i class="fa-solid fa-cart-shopping"></i>
-                            </a>
-                        <?php } ?>
-                    </li>
-                </ul>
-                <a href="my_account.php" class="flex items-center">
-                    <img src="<?php echo $avatar ?>" alt="" class="w-3xl rad-full" />
-                </a>
+            </div>
+            <div class="right-menu flex gap-xl">
                 <?php
-            } else {
+                    if($logged) {
                 ?>
-                <a href="../customer_register.php" class="btn btn-md flex items-center rad-md text-white font-bold bg-blue border-blue">Register</a>
-                <a href="../index.php" class="btn btn-md flex items-center rad-md text-white font-bold bg-red border-blue">Log in</a>
+                    <ul class="flex items-center gap-xl">
+                        <li>
+                            <?php if ($role === 'customer') { ?>
+                                <a href="../shopping_cart.php">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </a>
+                            <?php } ?>
+                        </li>
+                    </ul>
+                    <a href="../my_account.php" class="flex items-center">
+                        <img src="<?php echo $avatar ?>" alt="" class="w-3xl rad-full" />
+                    </a>
                 <?php
-            }
-            ?>
-        </div>
-    </nav>
-</header>
-<main class="flex flex-col gap-xl">
+                    } else {
+                ?>
+                    <a href="../customer_register.php" class="btn btn-md flex items-center rad-md text-white font-bold bg-blue border-blue">Register</a>
+                    <a href="../index.php" class="btn btn-md flex items-center rad-md text-white font-bold bg-red border-blue">Log in</a>
+                <?php
+                    }
+                ?>
+            </div>
+        </nav>
+    </header>
+    <main class="flex flex-col gap-xl">

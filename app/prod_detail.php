@@ -1,8 +1,10 @@
 <?php
 session_start();
-include 'partials/header.php';
-$product_json = read('db/lazada.db');
-$prods = get_item('id',$_GET['id'],json_decode($product_json))[0];
+require('config.php');
+include($path.'/partials/header.php');
+
+$product_json = file_get_contents('db/product.db');
+$prods = json_decode(($product_json), true);
 ?>
 <div class="flex gap-lg">
     <div class="prod flex flex-col gap-md items-center">
@@ -37,6 +39,5 @@ $prods = get_item('id',$_GET['id'],json_decode($product_json))[0];
     }
 </script>
 <?php
-include 'partials/footer.php';
+include($path.'/partials/footer.php');
 ?>
-

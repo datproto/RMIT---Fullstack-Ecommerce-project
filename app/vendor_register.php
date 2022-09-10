@@ -1,5 +1,6 @@
 <?php
-    include 'partials/header.php';
+    require('config.php');
+    include($path.'/partials/header.php');
 ?>
 <script src="./js/vendor_FormValidation.js"></script>
 <h1 class="heading-center">Register</h1>
@@ -150,16 +151,16 @@
         }
     if (isset($_POST["login"])) {
         $file = $_FILES["avatar"]["tmp_name"];
-        $path = "avatar/".$_FILES["avatar"]["name"];
+        $ava_path = "avatar/".$_FILES["avatar"]["name"];
         $username = $_POST["username"];
         $password = $_POST["password"];
         $business_name = $_POST["business_name"];
         $business_address = $_POST["business_address"];
-        if (validate_username($username) == true && validate_password($password) == true && validate_name($business_name) == true && validate_address($business_address) == true && check_username($username) == true && check_business_name($business_name) == true
-        && check_business_address($business_address) == true) {
+        if (validate_username($username) && validate_password($password) && validate_name($business_name) && validate_address($business_address) && check_username($username) && check_business_name($business_name) == true
+        && check_business_address($business_address)) {
             $hashed_password = password_hash("$password",PASSWORD_DEFAULT); 
             $list = array (
-            array("vendor", $username, $hashed_password,$business_name,$business_address, $path)
+            array("vendor", $username, $hashed_password,$business_name,$business_address, $ava_path)
             );
             foreach($list as $char) {
                 fputcsv($myfile, $char);
@@ -171,4 +172,5 @@
     }
 ?>
 <?php
-    include 'partials/footer.php';
+    include($path.'/partials/footer.php');
+?>
