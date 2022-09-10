@@ -1,1 +1,2 @@
-id,shipper_id,prods,active
+username,hub_name,prods,address,status
+datproto,hub2,[{"prod":1},{"prod":2}],Somewhere,1
