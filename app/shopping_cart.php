@@ -22,8 +22,6 @@ $total_price = 0;
 foreach ($cart_items_array as $item) {
     $displayed_cart_items[] = get_item('id', $item['prod'], $products_array)[0];
 }
-
-echo count($displayed_cart_items);
 ?>
 
 <div class="flex flex-col lg:flex-row gap-md">
