@@ -51,9 +51,9 @@ $hub_address3      = $curr_user3->hub_address;
         <div class="w-full">
             <label for="distribution-hub">Choose a distribution hub</label>
             <select class="register-input w-full" name="distribution-hub" id="distribution-hub">
-                <option value="hub My Dinh"><?php echo"Hub name:$hub_name1; Hub address: $hub_address1" ?></option>
-                <option value="hub Nguyen Trai"><?php echo"Hub name:$hub_name2; Hub address: $hub_address2" ?></option>
-                <option value="hub Hola"><?php echo"Hub name:$hub_name3; Hub address: $hub_address3" ?></option>
+                <option value="hub My Dinh"><?php echo"Hub name:$hub_name1" ?></option>
+                <option value="hub Nguyen Trai"><?php echo"Hub name:$hub_name2" ?></option>
+                <option value="hub Hola"><?php echo"Hub name:$hub_name3" ?></option>
             </select>
         </div>
         <div class="w-full">
