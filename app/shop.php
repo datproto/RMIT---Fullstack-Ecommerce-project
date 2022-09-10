@@ -7,7 +7,6 @@ include($path . '/partials/header.php');
     <h1>Products</h1>
     <div>
         <input id="filterProductBox" type="text" placeholder="Filter product" class="rad-none rad-left-md" onkeyup="filterProduct()" />
-        <button class="btn btn-square bg-red text-md text-white rad-right-md"><i class="fa-solid fa-magnifying-glass"></i></button>
     </div>
 </div>
 <div class="productList grid grid-col-3 gap-lg">
