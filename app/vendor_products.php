@@ -1,8 +1,6 @@
 <?php
 include 'partials/header.php';
-include 'search_bar/search_bar.php';
 ?>
-
 
 
 <div class="flex gap-xl">
@@ -15,7 +13,7 @@ include 'search_bar/search_bar.php';
 </div>
 
 
-
 <?php
+include 'js/display_list.js';
 include 'partials/footer.php';
 ?>
