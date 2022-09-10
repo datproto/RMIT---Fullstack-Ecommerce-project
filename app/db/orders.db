@@ -1,1 +1,5 @@
-id,shipper_id,prods,active
+username,hub_name,prods,address,status
+binh,Hola,laptop,Nam tu liem,active
+vinh,Hola,may tinh,Nam tu liem,active
+vinh2,My Dinh,dien thoai,Cau giay,active
+vinh3,Nguyen Trai,Tablet,Thanh xuan,active

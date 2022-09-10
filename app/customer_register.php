@@ -21,7 +21,7 @@
     </a>
 </div>
 <div class="center">
-    <form class="flex flex-col gap-md items-center" onsubmit="return customer_validateForm()" method="post" action="my_account.php" enctype="multipart/form-data">
+    <form class="flex flex-col gap-md items-center" onsubmit="return customer_validateForm()" method="post" action="" enctype="multipart/form-data">
         <div class="w-full">
             <input class="w-full" type="file" name="avatar" id="avatar">
         </div>
@@ -125,6 +125,7 @@ if (isset($_POST['login'])) {
     $role = "customer";
     $username = $_POST["username"];
     $password = $_POST["password"];
+    echo"$username";
     $name = $_POST["name"];
     $address = $_POST["address"];
     if (validate_username($username) && validate_password($password) && validate_name($name) && validate_address($address) && check_username($username)) {
