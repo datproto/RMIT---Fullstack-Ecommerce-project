@@ -2,6 +2,20 @@
     require('config.php');
     include($path.'/partials/header.php');
 ?>
+<?php
+$hpath="db/hub.db";
+read($hpath);
+$hfile = read($hpath);
+$curr_user1 = get_item("hub_name","hub My Dinh",$hfile)[0];
+$hub_name1      = $curr_user1->hub_name;
+$hub_address1      = $curr_user1->hub_address;
+$curr_user2 = get_item("hub_name","hub Nguyen Trai",$hfile)[0];
+$hub_name2      = $curr_user2->hub_name;
+$hub_address2      = $curr_user2->hub_address;
+$curr_user3 = get_item("hub_name","hub Hola",$hfile)[0];
+$hub_name3      = $curr_user3->hub_name;
+$hub_address3      = $curr_user3->hub_address;
+?>
 <script src="./js/shipper_FormValidation.js"></script>
 <h1 class="heading-center">Register</h1>
 <div class="flex center">
@@ -22,7 +36,7 @@
     </a>
 </div>
 <div class="center">
-    <form class="flex flex-col gap-md items-center" onsubmit="return customer_validateForm()" method="post" action="" enctype="multipart/form-data">
+    <form class="flex flex-col gap-md items-center" onsubmit="return customer_validateForm()" method="post" action="my_account.php" enctype="multipart/form-data">
         <div class="w-full">
             <input class="w-full" type="file" name="avatar" id="avatar">
         </div>
@@ -37,9 +51,9 @@
         <div class="w-full">
             <label for="distribution-hub">Choose a distribution hub</label>
             <select class="register-input w-full" name="distribution-hub" id="distribution-hub">
-                <option value="hub1">hub 1</option>
-                <option value="hub2">hub 2</option>
-                <option value="hub3">hub 3</option>
+                <option value="hub My Dinh"><?php echo"Hub name:$hub_name1; Hub address: $hub_address1" ?></option>
+                <option value="hub Nguyen Trai"><?php echo"Hub name:$hub_name2; Hub address: $hub_address2" ?></option>
+                <option value="hub Hola"><?php echo"Hub name:$hub_name3; Hub address: $hub_address3" ?></option>
             </select>
         </div>
         <div class="w-full">
@@ -118,7 +132,7 @@
                 fputcsv($myfile, $char);
             } move_uploaded_file($file, $ava_path);
             echo "Register successfully";     
-        } 
+        } else echo"failed";
     }      
 ?>
 <?php
