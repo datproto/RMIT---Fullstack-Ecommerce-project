@@ -2,7 +2,8 @@
     require('config.php');
     include($path.'/partials/header.php');
 
-    function check_if_username_exist($login_name,$login_pass) {
+    function check_if_username_exist($login_name,$login_pass): bool
+    {
         $users      = read("db/accounts.db");
 
         $curr_user = get_item('uname',$login_name,json_decode($users))[0];
