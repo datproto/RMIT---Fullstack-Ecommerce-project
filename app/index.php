@@ -9,6 +9,7 @@
         while (($data = fgetcsv($file)) !== FALSE) {
             array_push($username,$data[1]);
             array_push($password,$data[2]);
+            arra
         }    
         if (in_array($login_name,$username)) {
             $user_pos = array_search($login_name,$username);
@@ -53,5 +54,5 @@
 
 
 
-    
+
 

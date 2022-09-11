@@ -30,7 +30,7 @@ if (isset($_GET['login_name'])) {
     }
 }
 
-if ($logged) {
+if ($logged && $username !== '') {
     $users = read($path . '/db/accounts.db');
     $curr_user = get_item('uname', $username, $users)[0];
 
