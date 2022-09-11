@@ -82,3 +82,21 @@ a:hover {
 img {
     border-radius: 50%;
   }
+
+footer {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: .5rem;
+}
+
+#register-tabs > a > div {
+    padding: .75rem 1rem;
+}
+
+#my-account {
+    padding: 3rem; border: 1px solid var(--gray)
+}
+
+.trim-text {
+    width: 15rem; max-width: 15rem; ellipsis; white-space: nowrap; overflow: hidden;
+}

@@ -3,19 +3,19 @@
 ?>
 <script src="./js/customer_FormValidation.js"></script>
 <h1 class="heading-center">Register</h1>
-<div class="flex center">
+<div id="register-tabs" class="flex center">
     <a href="customer_register.php">
-        <div class="bg-blue rad-left-md text-white font-medium" style="padding: .75rem 1rem">
+        <div class="bg-blue rad-left-md text-white font-medium">
             <div class="">Customer</div>
         </div>
     </a>
     <a href="vendor_register.php">
-        <div class="bg-gray" style="padding: .75rem 1rem">
+        <div class="bg-gray">
             <div class="test3">Vendor</div>
         </div>
     </a>
     <a href="shipper_register.php">
-        <div class="bg-gray rad-right-md" style="padding: .75rem 1rem">
+        <div class="bg-gray rad-right-md">
             <div class="test3">Shipper</div>
         </div>
     </a>

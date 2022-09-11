@@ -30,7 +30,7 @@ $hub_choice = $hubs_names[array_rand($hubs_names)];
 ?>
 
 <div class="flex flex-col lg:flex-row gap-md">
-    <div class="flex-1 flex flex-col gap-md rad-sm" style="padding: 1rem; border: 1px solid gray">
+    <div class="flex-1 flex flex-col gap-md rad-sm border padding-1">
         <!-- Product -->
         <?php
             foreach ($displayed_cart_items as $key=>$item) {
@@ -38,8 +38,8 @@ $hub_choice = $hubs_names[array_rand($hubs_names)];
         ?>
             <div id="prod-<?php echo $key ?>" class="w-full flex items-center justify-between">
                 <div class="information flex-1 flex items-center gap-md">
-                    <img src="<?php echo $item->img ?>" alt="" class="w-8xl rad-md" style="object-fit: cover">
-                    <div style="width: 15rem; max-width: 15rem; ellipsis; white-space: nowrap; overflow: hidden;"><?php echo $item->name ?></div>
+                    <img src="<?php echo $item->img ?>" alt="" class="w-8xl rad-md object-cover">
+                    <div class="trim-text"><?php echo $item->name ?></div>
                     <div>- <?php echo $item->price ?></div>
                 </div>
                 <div class="quantity">
@@ -48,7 +48,7 @@ $hub_choice = $hubs_names[array_rand($hubs_names)];
             </div>
         <?php } ?>
     </div>
-    <div class="w-full flex flex-col gap-md rad-sm md:w-1/6" style="padding: 1rem; border: 1px solid gray; height: fit-content">
+    <div class="w-full flex flex-col gap-md rad-sm md:w-1/6 padding-1 border">
         <h4>Shipping Details</h4>
         <div class="flex justify-between gap-sm">
             <p>Total price</p>

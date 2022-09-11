@@ -4,19 +4,19 @@
 ?>
 <script src="./js/shipper_FormValidation.js"></script>
 <h1 class="heading-center">Register</h1>
-<div class="flex center">
+<div id="register-tabs" class="flex center">
     <a href="customer_register.php">
-        <div class="bg-gray rad-left-md" style="padding: .75rem 1rem">
+        <div class="bg-gray rad-left-md">
             <div class="">Customer</div>
         </div>
     </a>
     <a href="vendor_register.php">
-        <div class="bg-gray" style="padding: .75rem 1rem">
+        <div class="bg-gray">
             <div class="test3">Vendor</div>
         </div>
     </a>
     <a href="shipper_register.php">
-        <div class="bg-blue text-white font-medium rad-right-md" style="padding: .75rem 1rem">
+        <div class="bg-blue text-white font-medium rad-right-md">
             <div class="test3">Shipper</div>
         </div>
     </a>
