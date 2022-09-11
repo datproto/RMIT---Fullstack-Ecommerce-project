@@ -1,5 +1,2 @@
 username,hub_name,prods,address,status
-binh,Hola,laptop,Nam tu liem,active
-vinh,Hola,may tinh,Nam tu liem,active
-vinh2,My Dinh,dien thoai,Cau giay,active
-vinh3,Nguyen Trai,Tablet,Thanh xuan,active
+datproto,My Dinh,[{"prod":1},{"prod":2}],Somewhere,1
