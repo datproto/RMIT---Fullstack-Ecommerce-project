@@ -5,14 +5,8 @@
 ?>
 
 <?php
-    $file = fopen("db/accounts.db","r");
-    $account_read = fopen("db/my_accounts.db","r");
-    $account_w = fopen("db/my_accounts.db","w");
-    while (($data = fgetcsv($file)) !== FALSE) {
-        if ($username == $data[1]) {
-            fputcsv($account_w,$data);
-        }
-    }
+    $username = $_SESSION["u_name"];
+    $output = fopen('db/my_accounts.db', 'w');
 ?>
 
     <div class="w-full flex justify-center">
@@ -24,20 +18,27 @@
                 <div class="information flex flex-col gap-md">
                     <?php
                     if (isset($_POST["ava"])) {
+                        $file = fopen("db/accounts.db","r");
                         $file2 = $_FILES["chg_ava"]["tmp_name"];
                         $path = "avatar/".$_FILES["chg_ava"]["name"];
-                        $account_w4 = fopen("db/my_accounts.db","r");
                         move_uploaded_file($file2, $path);
-                        $file_contents= file_get_contents("db/my_accounts.db");
-                        $file_contents = str_replace($avatar,$path,$file_contents);
-                        file_put_contents("db/my_accounts.db",$file_contents);
-
-                        while (($data = fgetcsv($file)) !== FALSE) {
+                        $output2 = fopen('db/my_accounts.db', 'a');
+                        $input = fopen('db/accounts.db', 'r');  //open for reading
+                        $output = fopen('db/my_accounts.db', 'w'); //open for writing
+                        while( false !== ( $data = fgetcsv($input) ) ){  //read each line as an array
+                            if ($username !== $data[1]) {
+                                fputcsv($output,$data);}
                             if ($username == $data[1]) {
-                                fputcsv($account_w,$data);
+                                $data[5]=$path;
+                                print_r($data[5]);
+                                fputcsv($output2,$data);
+                               }}
+                                fclose( $input );
+                                fclose( $output );
+                                unlink('db/accounts.db');// Delete obsolete BD
+                                rename('db/my_accounts.db', 'db/accounts.db'); //Rename temporary to new
                             }
-                        }
-                    }
+                            
                     ?>
                     <form class="flex flex-col gap-md" action="" method="post" enctype="multipart/form-data">
                         <div class="w-full flex flex-col items-start gap-sm">
@@ -75,5 +76,5 @@
         </div>
     </div>
 <?php
-    include($path.'/partials/footer.php');
+    include('partials/footer.php');
 ?>

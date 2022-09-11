@@ -1,6 +1,5 @@
 <?php
-    require('config.php');
-    include($path.'/partials/header.php');
+    include 'partials/header.php';
 ?>
 <script src="./js/customer_FormValidation.js"></script>
 <h1 class="heading-center">Register</h1>
@@ -123,8 +122,10 @@
 if (isset($_POST['login'])) {   
     $file = $_FILES["avatar"]["tmp_name"];
     $path = "avatar/".$_FILES["avatar"]["name"];
+    $role = "customer";
     $username = $_POST["username"];
     $password = $_POST["password"];
+    echo"$username";
     $name = $_POST["name"];
     $address = $_POST["address"];
     if (validate_username($username) && validate_password($password) && validate_name($name) && validate_address($address) && check_username($username)) {

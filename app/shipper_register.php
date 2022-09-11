@@ -37,9 +37,9 @@
         <div class="w-full">
             <label for="distribution-hub">Choose a distribution hub</label>
             <select class="register-input w-full" name="distribution-hub" id="distribution-hub">
-                <option value="hub1">hub 1</option>
-                <option value="hub2">hub 2</option>
-                <option value="hub3">hub 3</option>
+                <option value="My Dinh">My Dinh</option>
+                <option value="Nguyen Trai">Nguyen Trai</option>
+                <option value="Hola">Hola</option>
             </select>
         </div>
         <div class="w-full">
