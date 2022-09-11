@@ -104,7 +104,7 @@ $products_array = read($path . '/db/lazada.db');
                         </li>
                     </ul>
                     <a href="../my_account.php" class="flex items-center">
-                        <img src="<?php echo $avatar ?>" alt="" class="w-3xl rad-full" />
+                        <img src="<?php echo $avatar ?>" alt="" class="w-3xl rad-full" style="width: 50px; height: 50px;"/>
                     </a>
                 <?php
                 } else {

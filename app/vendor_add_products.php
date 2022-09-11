@@ -11,7 +11,7 @@ include 'partials/header.php';
 
 <div class="flex gap-lg">
     <div>
-        <form id="add_products" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
+        <form id="add_products" action="" method="post" enctype="multipart/form-data">
             <input name="token" type="hidden" value="<?php echo $form_token; ?>">
             <label for="image_input">Choose a picture for your product: </label><br>
             <input id="image_input" name="image_input" type="file" accept="image/png, image/jpeg" onchange="previewFile()" required><br>
@@ -47,9 +47,8 @@ include 'partials/header.php';
 
 <?php
 $myfile = fopen("db/lazada.db", "a");
-$can_write = true;
 
-function check_product($name)
+function check_product_exists($name)
 {
     $file = fopen("db/lazada.db", "r");
     $new = array();
@@ -57,19 +56,19 @@ function check_product($name)
         array_push($new, $data[1]);
     }
     if (in_array($name, $new)) {
-        return false;
+        return true;
     }
-    return true;
+    return false;
 }
 
 if (isset($_POST['add_product'])) {
     $file = $_FILES["image_input"]["tmp_name"];
     $image_file_path = "product_images/" . $_FILES["image_input"]["name"];
     $name = $_POST["product_name"];
-    $price = $_POST["product_price"];
+    $price = '₫'.$_POST["product_price"];
     $description = $_POST["product_desc"];
 
-    if (check_product($name) && $can_write) {
+    if (!check_product_exists($name)) {
         $list = array(
             array(count($products_array), $name, $name, $image_file_path, $description, $price, $username)
         );
@@ -78,10 +77,9 @@ if (isset($_POST['add_product'])) {
         }
         move_uploaded_file($file, $image_file_path);
 
-        $put_csv = fputcsv($myfile, $char);
-        if ($put_csv) {
-            $can_write = false;
-        }
+        echo '<script language="javascript">';
+        echo 'alert("Product added successfully!!")';
+        echo '</script>';
     }
 }
 
