@@ -10,6 +10,7 @@
         if ($curr_user) {
             $password   = $curr_user->pass;
             $role       = $curr_user->role;
+            
 
             if(password_verify($login_pass,$password)) {
                 if ($role == "vendor") {
