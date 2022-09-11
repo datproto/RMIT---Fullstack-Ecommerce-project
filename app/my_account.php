@@ -39,8 +39,6 @@
                                 rename('db/my_accounts.db', 'db/accounts.db'); //Rename temporary to new
                             }
                             
-                                move_uploaded_file($file2, $path);
-
                     ?>
                     <form class="flex flex-col gap-md" action="" method="post" enctype="multipart/form-data">
                         <div class="w-full flex flex-col items-start gap-sm">
