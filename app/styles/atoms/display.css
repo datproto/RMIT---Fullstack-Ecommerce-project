@@ -104,3 +104,10 @@
 .gap-xl {
     gap: 1.5rem;
 }
+
+.self-start {
+    align-self: start;
+}
+.self-center {
+    align-self: center;
+}

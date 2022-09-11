@@ -10,7 +10,7 @@
 ?>
 
     <div class="w-full flex justify-center">
-        <div class="w-full md:w-1/2 flex flex-col gap-md rad-md" style="padding: 3rem; border: 1px solid var(--gray)">
+        <div id="my-account" class="w-full md:w-1/2 flex flex-col gap-md rad-md">
             <h1>My Account</h1>
 
             <div id="content" class="flex flex-col lg:flex-row gap-md">
@@ -81,6 +81,10 @@
             </div>
         </div>
     </div>
+
+<script>
+    window.history.pushState('my_account', 'Title', '/my_account.php');
+</script>
 <?php
     include('partials/footer.php');
 ?>

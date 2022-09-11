@@ -59,11 +59,11 @@
     <form method="get" action="my_account.php" class="flex flex-col items-center gap-md w-full">
         <div class="w-full flex items-center gap-sm">
             <label class="register-input w-10xl font-medium text-red" for="login_name">Username:</label>
-            <input class="register-input w-full" id="login_name" name="login_name" type="text" style="flex: 1"/>
+            <input class="register-input w-full flex-1" id="login_name" name="login_name" type="text"/>
         </div>
         <div class="w-full flex items-center gap-sm">
             <label class="register-input w-10xl font-medium text-red" for="login_pass">Password:</label>
-            <input class="register-input" id="login_pass" name="login_pass" type="password" style="flex: 1"/>
+            <input class="register-input flex-1" id="login_pass" name="login_pass" type="password"/>
         </div>
         <input type="submit" name="submit" class="w-full bg-red btn btn-lg text-white font-medium">
     </form>

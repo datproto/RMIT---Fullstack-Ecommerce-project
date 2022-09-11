@@ -2,6 +2,10 @@
     width: 100%;
 }
 
+.h-full {
+    height: 100%;
+}
+
 .w-xs {
     width: .25rem;
 }
@@ -166,4 +170,16 @@
     .lg\:w-1\/2 {
         width: 50%;
     }
+}
+
+.pl-0 {
+    padding-left: 0;
+}
+
+.padding-1 {
+    padding: 1rem;
+}
+
+.object-cover {
+    object-fit: cover;
 }
