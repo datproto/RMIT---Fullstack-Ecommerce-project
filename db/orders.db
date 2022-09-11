@@ -1,4 +1,5 @@
 username,hub_name,prods,address,status
+vinh3,"My Dinh",[{"prod":1},{"prod":2}],"Thanh xuan",active
+binh,"Nguyen Trai",[{"prod":1},{"prod":2}],"Nam tu liem",active
+binh33,Hola,[{"prod":1},{"prod":2}],"Nam tu liem",delivered
 datproto,hub2,[{"prod":1},{"prod":2}],Somewhere,1
-datproto,hub2,[{"prod":1}],Somewhere,1
-datproto,hub2,[{"prod":1},{"prod":9}],Somewhere,1

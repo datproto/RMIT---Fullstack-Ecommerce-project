@@ -74,7 +74,8 @@ function checkOut() {
     hub_name: 'hub2',
     prods: '<?php echo json_encode($_SESSION['buy_prod']) ?>',
     address: '<?php echo $b_address ?>',
-    active: true
+    totalPrice: '<?php echo $total_price ?>',
+    active: true,
   }
   let url = "shopping_cartCheckOut.php";
   let xhr = new XMLHttpRequest();
