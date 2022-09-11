@@ -22,6 +22,11 @@ $total_price = 0;
 foreach ($cart_items_array as $item) {
     $displayed_cart_items[] = get_item('id', $item['prod'], $products_array)[0];
 }
+
+// Random hub
+$hubs = read($path.'/db/hub.db');
+$hubs_names = array_column($hubs, 'hub_name');
+$hub_choice = $hubs_names[array_rand($hubs_names)];
 ?>
 
 <div class="flex flex-col lg:flex-row gap-md">
@@ -71,11 +76,19 @@ function unsetCardProd(key) {
 function checkOut() {
   let data = {
     username: '<?php echo $username ?>',
-    hub_name: 'hub2',
-    prods: '<?php echo json_encode($_SESSION['buy_prod']) ?>',
-    address: '<?php echo $b_address ?>',
+    hub_name: '<?php echo $hub_choice ?>',
+    prods: '"<?php
+        $prod_ids = "";
+        foreach ($_SESSION['buy_prod'] as $p) {
+            $prod_ids .= $p['prod'];
+            $prod_ids .= ',';
+        }
+        $prod_ids = rtrim($prod_ids, ",");
+        echo $prod_ids;
+    ?>"',
     totalPrice: '<?php echo $total_price ?>',
-    active: true,
+    address: '<?php echo $b_address ?>',
+    active: 'active',
   }
   let url = "shopping_cartCheckOut.php";
   let xhr = new XMLHttpRequest();
@@ -88,7 +101,7 @@ function checkOut() {
       console.log(xhr.response);
     }
   }
-  // window.location.reload();
+  window.location.reload();
 }
 </script>
 <?php

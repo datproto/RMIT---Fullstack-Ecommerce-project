@@ -14,7 +14,13 @@
             <h1>My Account</h1>
 
             <div id="content" class="flex flex-col lg:flex-row gap-md">
-                <img src="<?= $avatar ?>" width="200" height="200" alt="avatar">
+                <img src="<?php
+                    if ($avatar === '') {
+                        echo 'https://i.pravatar.cc/500?img=15';
+                    } else {
+                        echo $avatar;
+                    }
+                ?>" width="200" height="200" alt="avatar">
                 <div class="information flex flex-col gap-md">
                     <?php
                     if (isset($_POST["ava"])) {

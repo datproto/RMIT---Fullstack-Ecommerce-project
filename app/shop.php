@@ -36,10 +36,10 @@ include($path . '/partials/header.php');
         let input, filter, ul, li, a, i;
         input = document.getElementById("filterProductBox");
         filter = input.value.toUpperCase();
-        productList = document.querySelector(".productList");
-        allProducts = productList.querySelectorAll(".product");
+        let productList = document.querySelector(".productList");
+        let allProducts = productList.querySelectorAll(".product");
         for (i = 0; i < allProducts.length; i++) {
-            txtValue = allProducts[i].textContent || allProducts[i].innerText;
+            let txtValue = allProducts[i].textContent || allProducts[i].innerText;
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
                 allProducts[i].style.display = "";
             } else {
