@@ -2,3 +2,21 @@ role,uname,pass,b_name,b_address,avatar
 shipper,Vinhshipper,$2y$10$2R2zbP5khNk2Cq/2yHxUeeFkZSRx5.OrN7aMbphuyfvEhYy1DdfoG,,"My Dinh",avatar/210715532.jpg
 shipper,Vinhshipper3,$2y$10$godXDJei6XPGebgfkEu1h.Wae0winKQVvx3G6P5Uy6Dst33VwFStO,,"Nguyen Trai",avatar/151015086.jpg
 shipper,VInhshipper4,$2y$10$e.ghHhQ3ty6uzPm6pQIyOu6buT2YwofLFp1Oz0BwcYOPPf3Mu34Xy,,Hola,avatar/210715532.jpg
+shipper,VinhShipper11,$2y$10$YFe.L0E3GVRhl/VKVa.M/uITJAgsGpMYfbNKsoTGE3FZVkf8UfSDW,,"My Dinh",avatar/151015086.jpg
+shipper,Vinhshipper22,$2y$10$FP.6dVjM1YbWgz4GgcM1/ecEGXhFhciCMdAtDkMmUfNBP0h6DfgSu,,"Nguyen Trai",avatar/151015086.jpg
+shipper,Shipper33,$2y$10$bimMOQFq.WVPEk83LqQwXeKZpH4vRs8gYWRuAvaz4RRqcNGQ4rDd6,,"My Dinh",avatar/151015086.jpg
+shipper,shipper4,$2y$10$OT5xG6iC1zi8RzDvA3bGdefL/esl2hFTVFlPIVpJvK4JEkZgslju6,,"My Dinh",avatar/210715532.jpg
+customer,Vinhcustomer,$2y$10$7ryoNpE7mDptI7or6YtmNOIXvH6wvqGpcs.M1eUDcquw5l0BwyVNu,vinhdinh,123456,avatar/151015086.jpg
+customer,Vinhcustomer22,$2y$10$BVlYBPA1iPZ4qpYRn4V78e5h4AZKjELYrIH/eV486Jt834cYwXWIS,vinhdinh,123456,avatar/151015086.jpg
+shipper,Vinhcustomer99,$2y$10$f0Wm38azqyJKsnS1Q8oqsuJzMz7t8ihPuC.3315Jah3tysVux.cL2,,"My Dinh",avatar/
+customer,Vinhcustomer1,$2y$10$d2FzjwH1V0hjMSM41o9kBOknV/0fxV83v62mfCVhCCZRrmDNngDX6,vinhdinh,123545,avatar/
+customer,Vinhcustomer2,$2y$10$CM12KSPXSDX2MM.kZQPceO6KpJTziJDF8/yPRxHb3GJec0pFZsJSO,vinhdinh,vinh2542003,avatar/
+customer,customer55,$2y$10$4QRx/VgNT0rmiKS66B364..SucWvcKJapX3CzXR77HafgBc47B8/u,vinhdinh,123456,avatar/
+customer,vinhcustomer77,$2y$10$NgiCXL7cfAbye0XXAW8n5ugl8O1TCpaBV8cM916mKOEEK84thDGJS,vinhdinh,1234576,avatar/
+customer,customer00,$2y$10$SsjbevporpjJcKxzcMbcoOs30VMAPAYGzKWk5pw577EwZy46T9m6G,dinhdasd,dasdasd,avatar/765-default-avatar.png
+customer,Customer33,$2y$10$w0Sxxa7e7S7eaxxPt5IfoOBwhXoHe0hIOxQcpTpWAmR1W5ufZUFFG,vinhdinh,vinhdinh,avatar/765-default-avatar.png
+customer,vinh1234V23213,$2y$10$gcllSmYOi07MwxoCwDxd7.7ZoxHODB057gwttppxVptSmWvMcS.8S,dinhdasd,dasdasdasd,avatar/765-default-avatar.png
+customer,Vinh2542003,$2y$10$xT26I6JAnfa4I/y.BlOr3eNHGTEcz2nk.83vba0.WEH6pC6RJmPxW,dasdasdas,dasdasdasd,avatar/765-default-avatar.png
+customer,vinh1234Vdasd,$2y$10$lz52iTwVcBEH/lsHs3qDNesnOm8Zit3pSAzI7Q76lbCw6WR0oIRRi,dinhDsaD,dASDsad,avatar/765-default-avatar.png
+customer,vinh1234V12321,$2y$10$Oir4jRNSRyqyCGgmB0U7P.C1mQwVt2k8FiW8eDHCFVMFYUQ.ePx7S,dSdsad,dsasdas,avatar/765-default-avatar.png
+customer,sdasdasd,$2y$10$00l9ff.oSkpF0VAB0W5LNOaxt1Ng.rC7Qs3M1efZpf9Fu.74G0Jt6,dinhsdasd,@!EDAS,avatar/765-default-avatar.png

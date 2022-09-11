@@ -22,7 +22,7 @@
     </a>
 </div>
 <div class="center">
-    <form class="flex flex-col gap-md items-center" onsubmit="return customer_validateForm()" method="post" action="" enctype="multipart/form-data">
+    <form class="flex flex-col gap-md items-center" onsubmit="return shipper_validateForm()" method="post" action="" enctype="multipart/form-data">
         <div class="w-full">
             <input class="w-full" type="file" name="avatar" id="avatar">
         </div>
@@ -32,7 +32,7 @@
         </div>
         <div class="w-full">
             <label class="register-input" for="password">Password</label>
-            <input class="register-input w-full" id="password" name="password" type="text">
+            <input class="register-input w-full" id="password" name="password" type="password">
         </div>
         <div class="w-full">
             <label for="distribution-hub">Choose a distribution hub</label>
@@ -112,12 +112,14 @@
         if (validate_username($username) && validate_password($password) && check_username($username)) {
             $hashed_password = password_hash("$password",PASSWORD_DEFAULT);
             $list = array (
-            array("shipper", $username, $hashed_password,$hub,$ava_path)
+            array("shipper", $username, $hashed_password,'',$hub,$ava_path)
             );
             foreach($list as $char) {
                 fputcsv($myfile, $char);
             } move_uploaded_file($file, $ava_path);
-            echo "Register successfully";     
+            echo "Register successfully";    ?>
+            <script src="./js/redirect.js"></script>
+        <?php        
         } 
     }      
 ?>

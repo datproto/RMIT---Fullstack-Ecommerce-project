@@ -121,7 +121,9 @@
     } 
 if (isset($_POST['login'])) {   
     $file = $_FILES["avatar"]["tmp_name"];
-    $path = "avatar/".$_FILES["avatar"]["name"];
+    if(empty( $_POST["avatar"])) {
+    $path = "avatar/765-default-avatar.png";} 
+    else { $path = "avatar/".$_FILES["avatar"]["name"];}
     $role = "customer";
     $username = $_POST["username"];
     $password = $_POST["password"];
@@ -135,10 +137,12 @@ if (isset($_POST['login'])) {
         foreach($list as $char) {
             fputcsv($myfile, $char);
         } move_uploaded_file($file, $path);  
-        echo "Register successfully";     
-    } 
-}        
-?>
+        echo "Register successfully"; ?>
+        <script src="./js/redirect.js"></script>
+<?php
+    }
+} ?>       
+
 <?php
     include 'partials/footer.php';
 

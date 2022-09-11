@@ -31,7 +31,7 @@
         </div>
         <div class="w-full">
             <label class="register-input" for="password">Password</label>
-            <input class="register-input w-full" id="password" name="password" type="text">
+            <input class="register-input w-full" id="password" name="password" type="password">
         </div>
         <div class="w-full">
             <label class="register-input" for="business_name">Business name</label>
@@ -167,7 +167,9 @@
                 
             }
             move_uploaded_file($file, $path);
-            echo "Register successfully";          
+            echo "Register successfully";   ?>
+            <script src="./js/redirect.js"></script>
+        <?php       
         } 
     }
 ?>
