@@ -6,15 +6,25 @@
         $file = fopen("db/accounts.db","r");
         $username=array();
         $password=array();
+        $role=array();
         while (($data = fgetcsv($file)) !== FALSE) {
             array_push($username,$data[1]);
             array_push($password,$data[2]);
-            arra
+            array_push($role,$data[0]);
         }    
         if (in_array($login_name,$username)) {
             $user_pos = array_search($login_name,$username);
             if(password_verify($login_pass,$password[$user_pos])) {
                 print_r("$login_pass");
+                if ($role[$user_pos] == "vendor");{
+                    $_SESSION["role"]="vendor";
+                }
+                if ($role[$user_pos] == "customer");{
+                    $_SESSION["role"]="customer";
+                }
+                if ($role[$user_pos] == "vendor");{
+                    $_SESSION["role"]="customer";
+                }
                 return true;
             }return false;
         }   
