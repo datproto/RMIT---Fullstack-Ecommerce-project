@@ -1,14 +1,14 @@
 <?php
-function create_update($data, $db_path) {
-    $decode = json_decode($data, true);
-
-    $db_file = fopen($db_path, 'w');
-
-    foreach($decode as $d) {
-        fputcsv($db_file, $d);
+function create_update($data, $db_path): void
+{
+    $json_data  = json_decode($data, true);
+    $final_data = '';
+    foreach ($json_data as $j) {
+      $final_data .= $j;
+      $final_data .= ',';
     }
 
-    fclose($db_file);
+    file_put_contents($db_path, rtrim($final_data, ',') . "\n", FILE_APPEND);
 }
 
 // Read db files & update db files

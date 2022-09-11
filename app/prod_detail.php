@@ -2,8 +2,8 @@
 require('config.php');
 include($path . '/partials/header.php');
 
-$product_json = file_get_contents('db/lazada.db');
-$prods = json_decode(($product_json), true);
+$product_json = read('db/lazada.db');
+$prods = get_item('id', $_GET['id'], $product_json)[0];
 ?>
 <div class="flex gap-lg">
     <div class="prod flex flex-col gap-md items-center">
@@ -14,7 +14,7 @@ $prods = json_decode(($product_json), true);
                     <h4><?php echo $prods->name ?></h4>
                     <p class="md:hidden"><?php echo $prods->description ?></p>
                     <div class="flex gap-md">
-                        <button class="btn btn-sm bg-red rad-xs text-white font-bold" onclick="addToCart(uname = <?php echo $username ?>, prod_id = <?php echo $prods->id ?>)">Add to Cart</button>
+                        <button class="btn btn-sm bg-red rad-xs text-white font-bold" onclick="addToCart(prod_id = <?php echo $prods->id ?>)">Add to Cart</button>
                         <button class="btn btn-sm bg-none font-medium" style="padding-left: 0;"><i class="fa-regular fa-heart text-red"></i> Add to Wish</button>
                     </div>
                 </div>

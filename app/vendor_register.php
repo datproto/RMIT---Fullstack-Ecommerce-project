@@ -31,7 +31,7 @@
         </div>
         <div class="w-full">
             <label class="register-input" for="password">Password</label>
-            <input class="register-input w-full" id="password" name="password" type="text">
+            <input class="register-input w-full" id="password" name="password" type="password">
         </div>
         <div class="w-full">
             <label class="register-input" for="business_name">Business name</label>
@@ -49,7 +49,8 @@
 <?php
     $myfile = fopen("db/accounts.db", "a");
     //Check password regex
-    function passwordIsValid( $pass) {
+    function passwordIsValid( $pass): bool
+    {
         if (!preg_match('/[a-z]+/', $pass)) {
             return false;
         } else if (!preg_match('/[A-Z]+/', $pass)) {
@@ -61,11 +62,12 @@
         }return true;
     }
     //check if username is taken    
-    function check_username($username) {
+    function check_username($username): bool
+    {
         $file=fopen("db/accounts.db","r");
         $new=array();
         while (($data = fgetcsv($file)) !== FALSE) {
-            array_push($new,$data[1]);   
+            $new[] = $data[1];
     }
         if (in_array($username,$new)) {
             echo "Username is taken";
@@ -88,7 +90,8 @@
         }   
     }
     //function to validate password
-    function validate_password($password) {
+    function validate_password($password): bool
+    {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if(empty($password)) {
                 return false;
@@ -102,7 +105,8 @@
         }return true;   
     }
     //functrion to validate business name
-    function validate_name($business_name) {
+    function validate_name($business_name): bool
+    {
         if ($_SERVER["REQUEST_METHOD"] == "POST")
             if(empty($business_name)) {
                 return false;
@@ -111,7 +115,8 @@
         }return true; 
     }
     //funtion to validate business address
-    function validate_address($business_address) {
+    function validate_address($business_address): bool
+    {
         if ($_SERVER["REQUEST_METHOD"] == "POST")
             if(empty($business_address)) {
                 return false;
@@ -120,12 +125,13 @@
         }return true;
     }
     //function to check if business name already exist
-        function check_business_name($business_name){
+        function check_business_name($business_name): bool
+        {
             $file = fopen("db/accounts.db","r");
             $new=array();
             while (($data = fgetcsv($file)) !== FALSE) {
-            if (preg_match("/^vendor$/",$data[0]) == true) {
-                array_push($new,$data[3]);
+            if ($data[0] == "vendor") {
+                $new[] = $data[3];
             }
 
         }
@@ -136,12 +142,13 @@
         }
     
     //function to check if business address already exist
-        function check_business_address($business_address){
+        function check_business_address($business_address): bool
+        {
             $file2 = fopen("db/accounts.db","r");
             $new_add=array();
             while (($data2 = fgetcsv($file2)) !== FALSE) {
-            if (preg_match("/^vendor$/",$data2[0]) == true) {
-                array_push($new_add,$data2[4]);
+            if ($data2[0] == "vendor") {
+                $new_add[] = $data2[4];
             }
         }
             if (in_array($business_address,$new_add)) {
