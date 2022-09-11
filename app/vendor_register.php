@@ -22,7 +22,7 @@
     </a>
 </div>
 <div class="center">
-    <form class="flex flex-col gap-md items-center" onsubmit="return vendor_validateForm()" method="post" action="my_account.php" enctype="multipart/form-data">
+    <form class="flex flex-col gap-md items-center" onsubmit="return vendor_validateForm()" method="post" action="" enctype="multipart/form-data">
         <div class="w-full">
             <input class=" w-full" type="file" name="avatar" id="avatar"></div>
         <div class="w-full">
@@ -170,11 +170,12 @@
             array("vendor", $username, $hashed_password,$business_name,$business_address, $ava_path)
             );
             foreach($list as $char) {
-                fputcsv($myfile, $char);
-                
+                fputcsv($myfile, $char);     
             }
-            move_uploaded_file($file, $path);
-            echo "Register successfully";          
+            move_uploaded_file($file, $ava_path);
+            echo "Register successfully";   ?>
+            <script src="./js/redirect.js"></script>       
+        <?php       
         } 
     }
 ?>

@@ -1,8 +1,20 @@
 <?php
-
 include 'partials/header.php';
 ?>
 <?php
+//function find item by id
+function find_item($prod) {
+$prods=explode(",",$prod);
+$arr=array();
+foreach ($prods as $pr) {
+    $item_file = read("db/lazada.db");
+    $item_find = get_item("id",$pr,$item_file)[0];
+    $item_name = $item_find->name;
+    array_push($arr,$item_name);
+}   $str=implode(",",$arr);
+return $str;
+}
+
 $username = $_SESSION["u_name"];
 $path2= "db/orders.db";
 $path="db/accounts.db";
@@ -17,6 +29,7 @@ if ($hub_name == "My Dinh" ) {
     $hub_name1   = $curr_user->hub_name;
     $address = $curr_user->address;
     $prod = $curr_user->prods;
+    $prod_name=find_item($prod);
     $status = $curr_user->status;
     if ($hub_name1 == "My Dinh" && $status == "active") {
         echo"order from $user";?>
@@ -24,12 +37,12 @@ if ($hub_name == "My Dinh" ) {
         <input type="submit" name="show_detail" value="show detail">
     </form>
     <?php if (isset($_POST["show_detail"])) {
-        echo"Products: $prod";
+        echo"Products: $prod_name";
         echo "<br>";
         echo"Total price: " ;
         echo "<br>";
-        echo"Address: $address";
-             ?>
+        echo"Address: $address";?>
+    <div class="prod flex flex-col gap-md items-center">
         <form action="" method="post">
             <input type="radio" id="active" name="status" value="active" class="radio">
             <label for="status">Active</label>
@@ -39,6 +52,7 @@ if ($hub_name == "My Dinh" ) {
             <label for="status">Canceled</label>
             <input type="submit" name="chg_status" value="change status">
         </form>
+    </div>
     <?php
        } if (isset($_POST["chg_status"])) {
         $stats=$_POST["status"];
@@ -67,6 +81,7 @@ else if ($hub_name == "Nguyen Trai") {
     $hub_name1   = $curr_user->hub_name;
     $address = $curr_user->address;
     $prod = $curr_user->prods;
+    $prod_name=find_item($prod);
     $status = $curr_user->status;
     if ($hub_name1 == "Nguyen Trai" && $status == "active") {
         echo"order from $user";?>
@@ -74,7 +89,7 @@ else if ($hub_name == "Nguyen Trai") {
         <input type="submit" name="show_detail" value="show detail">
     </form>
     <?php if (isset($_POST["show_detail"])) {
-        echo"Products: $prod";
+        echo"Products: $prod_name";
         echo "<br>";
         echo"Total price: " ;
         echo "<br>";
@@ -108,7 +123,7 @@ else if ($hub_name == "Nguyen Trai") {
                 unlink('db/orders.db');// Delete obsolete BD
                 rename('db/tmp_orders.db', 'db/orders.db'); //Rename temporary to new
     }}
-}else if ($hub_name == "Hola") {
+}   else if ($hub_name == "Hola") {
     $path2= "db/orders.db";
     $file2= read($path2);
     $curr_user = get_item("hub_name","Hola",$file2)[0];
@@ -117,13 +132,14 @@ else if ($hub_name == "Nguyen Trai") {
     $address = $curr_user->address;
     $prod = $curr_user->prods;
     $status = $curr_user->status;
+    $prod_name=find_item($prod);
     if ($hub_name1 == "Hola" && $status == "active") {
         echo"order from $user";?>
     <form action="" method="post">
         <input type="submit" name="show_detail" value="show detail">
     </form>
     <?php if (isset($_POST["show_detail"])) {
-        echo"Products: $prod";
+        echo"Products: $prod_name";
         echo "<br>";
         echo"Total price: " ;
         echo "<br>";
@@ -155,8 +171,10 @@ else if ($hub_name == "Nguyen Trai") {
                 fclose( $input );
                 fclose( $output );
                 unlink('db/orders.db');// Delete obsolete BD
-                rename('db/tmp_orders.db', 'db/orders.db'); //Rename temporary to new
-    }}}
+                rename('db/tmp_orders.db', 'db/orders.db'); ?>
+                <script src="./js/redirec.js"></script>
+    
+           <?php }}}
 
-
+include 'partials/footer.php';
 ?>

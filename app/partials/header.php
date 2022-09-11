@@ -82,7 +82,7 @@ $products_array = read($path . '/db/lazada.db');
                             </li>
                         <?php } elseif ($role === 'shipper') { ?>
                             <li>
-                                <a href="../shipper_orders.php">My Orders</a>
+                                <a href="../shipper_page.php">My Orders</a>
                             </li>
                         <?php } ?>
                     </ul>
