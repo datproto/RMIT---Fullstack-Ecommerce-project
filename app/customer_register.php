@@ -31,7 +31,7 @@
         </div>
         <div class="w-full">
             <label class="register-input" for="password">Password</label>
-            <input class="register-input w-full" id="password" name="password" c>
+            <input class="register-input w-full" id="password" name="password"  type="password">
         </div>
         <div class="w-full">
             <label class="register-input" for="name">Name</label>
@@ -121,19 +121,18 @@
     } 
 if (isset($_POST['login'])) {   
     $file = $_FILES["avatar"]["tmp_name"];
-    if(empty( $_POST["avatar"])) {
-    $path = "avatar/765-default-avatar.png";} 
-    else { $path = "avatar/".$_FILES["avatar"]["name"];}
+    print_r($_POST["avatar"]);
+    $ava_path = "avatar/".$_FILES["avatar"]["name"];
+    print_r($ava_path);
     $role = "customer";
     $username = $_POST["username"];
     $password = $_POST["password"];
-    echo"$username";
     $name = $_POST["name"];
     $address = $_POST["address"];
     if (validate_username($username) && validate_password($password) && validate_name($name) && validate_address($address) && check_username($username)) {
         $hashed_password = password_hash("$password",PASSWORD_DEFAULT);
         $list = array (
-        array("customer", $username, $hashed_password,$name,$address,$path));
+        array("customer", $username, $hashed_password,$name,$address,$ava_path));
         foreach($list as $char) {
             fputcsv($myfile, $char);
         } move_uploaded_file($file, $path);  

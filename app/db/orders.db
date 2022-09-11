@@ -1,5 +1,5 @@
-username,hub_name,prods,address,status
-vinh3,"My Dinh",[{"prod":1},{"prod":2}],"Thanh xuan",active
-binh,"Nguyen Trai",[{"prod":1},{"prod":2}],"Nam tu liem",active
-binh33,Hola,[{"prod":1},{"prod":2}],"Nam tu liem",delivered
-datproto,hub2,[{"prod":1},{"prod":2}],Somewhere,1
+username,hub_name,prods,total_price,address,status
+binh,"Nguyen Trai","1,2",,"Nam tu liem",active
+datproto,"My Dinh","1,2",,Somewhere,active
+datproto,"Hola","1,2",,Somewhere,activecustomer88,hub2,[{"prod":2},{"prod":2}],customer1335,1198000,1
+customer88,hub2,[{"prod":2},{"prod":2}],customer1335,1198000,1

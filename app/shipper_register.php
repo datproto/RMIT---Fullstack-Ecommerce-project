@@ -112,7 +112,7 @@
         if (validate_username($username) && validate_password($password) && check_username($username)) {
             $hashed_password = password_hash("$password",PASSWORD_DEFAULT);
             $list = array (
-            array("shipper", $username, $hashed_password,$hub,$ava_path)
+            array("shipper", $username, $hashed_password,"",$hub,$ava_path)
             );
             foreach($list as $char) {
                 fputcsv($myfile, $char);
