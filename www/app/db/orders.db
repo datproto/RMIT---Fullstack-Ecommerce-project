@@ -1,0 +1,3 @@
+username,hub_name,prods,total_price,address,status
+Vinh,"My Dinh","1,1",12000,"Nha be",active
+Vinhcustomer,"Nguyen Trai","2,2,2,3,6",2376000,canceled,active

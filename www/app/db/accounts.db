@@ -1,0 +1,5 @@
+role,uname,pass,b_name,b_address,avatar
+vendor,Vinhvendor,$2y$10$d0qBw0/vUlSEq75rhVZaTeY8NLkVTTdJ46GF3b2x4bSVUGHy66EzG,VinhDinh,VinhDInh,avatar/210722520.jpg
+customer,Vinhcustomer,$2y$10$9P0quscj4jbTzuh7Ylhg0ORtI1ypO1IHcLw4rRyAuDoLiwEDcidjC,Vinhasdasd,đâsdsad,avatar/210722520.jpg
+shipper,Vinhshipper,$2y$10$9IByOgLMin1XW/fcwEBuz.9o6vQKQMZVKrj7zfYavJyR.jm2Bkrxu,,"Nguyen Trai",avatar/210722520.jpg
+shipper,vinh123456,$2y$10$uY1RS3NcmgBrCa/NS5d8l.KIoJczXXXYfkHM57IUjC9UwpK5i4N6y,,"My Dinh",avatar/
