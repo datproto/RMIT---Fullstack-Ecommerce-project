@@ -1,6 +1,5 @@
 <?php
-    require('config.php');
-    include($path.'/partials/header.php');
+    include 'partials/header.php';
 ?>
 <script src="./js/customer_FormValidation.js"></script>
 <h1 class="heading-center">Register</h1>
@@ -11,7 +10,7 @@
         </div>
     </a>
     <a href="vendor_register.php">
-        <div class="bg-gray" style="padding: .75rem 1rem">
+        <div class="bg-gray">
             <div class="test3">Vendor</div>
         </div>
     </a>
