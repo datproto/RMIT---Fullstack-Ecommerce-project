@@ -31,7 +31,7 @@ foreach ($products_array as $product) {
                     </div>
                     <div class="flex flex-col items-center">
                         <div class="font-bold text-lg text-red" style="align-self: center"><?php echo $vendor_products_array[$i]->price ?></div>
-                        <button class="detailsButton btn btn-md" onclick="navigateToProduct(<?php echo $vendor_products_array[$i]->id ?>)">Details..</button>
+                        <a class="detailsButton btn btn-md" href="<?php echo 'prod_detail.php?id='.$vendor_products_array[$i]->id ?>">Details..</a>
                     </div>
                 </div>
             </div>
