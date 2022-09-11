@@ -1,2 +1,4 @@
 username,hub_name,prods,address,status
-datproto,My Dinh,[{"prod":1},{"prod":2}],Somewhere,1
+vinh3,"My Dinh",Tablet,"Thanh xuan",active
+binh,"Nguyen Trai",laptop,"Nam tu liem",active
+binh33,Hola,laptop,"Nam tu liem",delivered
