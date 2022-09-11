@@ -2,36 +2,44 @@
     require('config.php');
     include($path.'/partials/header.php');
 
-    function check_if_username_exist($login_name,$login_pass): bool
+    function check_if_username_exist($login_name, $login_pass): bool
     {
-        $users      = read("db/accounts.db");
+        if ($login_name = '') {
+            echo 'Please input your username!';
+            return false;
+        } elseif ($login_pass = '') {
+            echo 'Please input your password!';
+            return false;
+        } else {
+            $users      = read("db/accounts.db");
+            $curr_user = get_item('uname',$login_name,$users)[0];
+            if ($curr_user) {
+                $password   = $curr_user->pass;
+                echo $password;
+                $role       = $curr_user->role;
 
-        $curr_user = get_item('uname',$login_name,json_decode($users))[0];
-        if ($curr_user) {
-            $password   = $curr_user->pass;
-            $role       = $curr_user->role;
-
-            if(password_verify($login_pass,$password)) {
-                if ($role == "vendor") {
-                    $_SESSION["role"]="vendor";
-                }
-                elseif($role == "customer") {
-                    $_SESSION["role"]="customer";
-                    //go to customer page
-                }
-                else {
-                    $_SESSION["role"]="customer";
-                    //go to shipper page
+                if(password_verify($login_pass,$password)) {
+                    if ($role == "vendor") {
+                        $_SESSION["role"]="vendor";
+                    }
+                    elseif($role == "customer") {
+                        $_SESSION["role"]="customer";
+                        //go to customer page
+                    }
+                    else {
+                        $_SESSION["role"]="customer";
+                        //go to shipper page
+                    }
+                } else {
+                    echo 'Wrong password!';
+                    return false;
                 }
             } else {
-                echo 'Wrong password!';
+                echo 'Cannot find user!';
                 return false;
             }
-        } else {
-            echo 'Cannot find user!';
-            return false;
+            return true;
         }
-        return true;
     }
 
     if (isset($_GET['submit'])) {
@@ -40,6 +48,7 @@
         if(check_if_username_exist($login_name, $login_pass)) {
             $_SESSION["u_name"] = $login_name;
             $_SESSION["logged"] = true;
+            $_SESSION["verify"] = true;
         } else {
             echo "Login failed";
         }
@@ -66,5 +75,5 @@
 
 
 
-    
+
 
